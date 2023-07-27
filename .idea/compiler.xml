@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="cocoyam-module-gen" />
         <module name="cocoyam-serve" />
         <module name="cocoyam-common" />
         <module name="cocoyam-module-auth" />
@@ -18,6 +19,7 @@
       <module name="cocoyam" options="" />
       <module name="cocoyam-common" options="-parameters" />
       <module name="cocoyam-module-auth" options="-parameters" />
+      <module name="cocoyam-module-gen" options="-parameters" />
       <module name="cocoyam-modules" options="" />
       <module name="cocoyam-serve" options="-parameters" />
     </option>

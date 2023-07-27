@@ -12,7 +12,16 @@
 
     <modules>
         <module>cocoyam-module-auth</module>
+        <module>cocoyam-module-gen</module>
     </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.xiaoyu</groupId>
+            <artifactId>cocoyam-module-auth</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
     <artifactId>cocoyam-modules</artifactId>
 
