@@ -21,7 +21,8 @@
 		<module>cocoyam-common</module>
 		<module>cocoyam-serve</module>
 		<module>cocoyam-modules</module>
-	</modules>
+        <module>cocoyam-modules/cocoyam-module-sys</module>
+    </modules>
 
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
