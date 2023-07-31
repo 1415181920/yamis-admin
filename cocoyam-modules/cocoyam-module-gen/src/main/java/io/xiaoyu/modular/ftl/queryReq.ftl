@@ -1,6 +1,6 @@
-package com.jiawa.train.${module}.req;
+package io.xiaoyu.${module}.modular.${childModule}.req;
 
-import com.jiawa.train.common.req.PageReq;
+import io.xiaoyu.common.req.PageReq;
 
 public class ${Domain}QueryReq extends PageReq {
 

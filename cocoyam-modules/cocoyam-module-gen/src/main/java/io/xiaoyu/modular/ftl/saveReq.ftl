@@ -1,4 +1,4 @@
-package com.jiawa.train.${module}.req;
+package io.xiaoyu.${module}.modular.${childModule}.req;
 
 <#list typeSet as type>
 <#if type=='Date'>
@@ -10,8 +10,9 @@ import java.math.BigDecimal;
 </#if>
 </#list>
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 
 public class ${Domain}SaveReq {
 

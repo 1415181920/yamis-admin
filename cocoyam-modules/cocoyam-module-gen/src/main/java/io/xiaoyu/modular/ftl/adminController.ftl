@@ -1,4 +1,4 @@
-package com.jiawa.train.${module}.controller.admin;
+package io.xiaoyu.${module}.modular.${childModule}.controller.admin;
 
 import com.jiawa.train.common.context.LoginMemberContext;
 import com.jiawa.train.common.resp.CommonResp;

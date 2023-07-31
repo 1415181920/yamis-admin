@@ -12,16 +12,16 @@ import java.util.*;
 
 public class ServerGenerator {
     static boolean readOnly = true;
-    static String vuePath = "admin/src/views/main/";
 
-    static String serverPath = "cocoyam-modules/cocoyam-module-[module]/src/main/java/io/xiaoyu/[module]/modular/login/";
+    static String url = "jdbc:mysql://localhost:3306/yamis";
+    static String user = "root";
+    static String password = "root";
 
+
+    static String serverPath = "cocoyam-modules/cocoyam-module-[module]/src/main/java/io/xiaoyu/[module]/modular/[childModule]/";
     static String module = "auth";//主模块名
-
+    static String childModule = "login";//子模块名
     static String tableName = "system_users";//表名
-
-
-
 
     static {
         new File(serverPath).mkdirs();
@@ -29,11 +29,12 @@ public class ServerGenerator {
 
     public static void main(String[] args) throws Exception {
 
-        DbUtil.url = "jdbc:mysql://localhost:3306/yamis";
-        DbUtil.user = "root";
-        DbUtil.password = "root";
+        DbUtil.url = url;
+        DbUtil.user = user;
+        DbUtil.password = password;
 
         serverPath = serverPath.replace("[module]", module);
+        serverPath = serverPath.replace("[childModule]", childModule);
 
         String Domain = CommonUtil.toCamelCase(tableName);
         String domain = Domain.substring(0, 1).toLowerCase() + Domain.substring(1);
@@ -48,16 +49,18 @@ public class ServerGenerator {
         param.put("Domain", Domain);
         param.put("domain", domain);
         param.put("do_main", do_main);
+        param.put("tableName", tableName);
         param.put("fieldList", fieldList);
         param.put("typeSet", typeSet);
         param.put("readOnly", readOnly);
+        param.put("childModule", childModule);
         System.out.println("组装参数：" + param);
 
-        gen(Domain, param, "service", "service");
+//          gen(Domain, param, "entity", "entity");
         gen(Domain, param, "controller/admin", "adminController");
-        gen(Domain, param, "req", "saveReq");
-        gen(Domain, param, "req", "queryReq");
-        gen(Domain, param, "resp", "queryResp");
+//        gen(Domain, param, "req", "saveReq");
+//        gen(Domain, param, "req", "queryReq");
+//        gen(Domain, param, "resp", "queryResp");
 
 //        genVue(do_main, param);
     }
@@ -72,13 +75,6 @@ public class ServerGenerator {
         FreemarkerUtil.generator(fileName, param);
     }
 
-    private static void genVue(String do_main, Map<String, Object> param) throws IOException, TemplateException {
-        FreemarkerUtil.initConfig("vue.ftl");
-        new File(vuePath + module).mkdirs();
-        String fileName = vuePath + module + "/" + do_main + ".vue";
-        System.out.println("开始生成：" + fileName);
-        FreemarkerUtil.generator(fileName, param);
-    }
 
 //    private static String getGeneratorPath() throws DocumentException {
 //        SAXReader saxReader = new SAXReader();

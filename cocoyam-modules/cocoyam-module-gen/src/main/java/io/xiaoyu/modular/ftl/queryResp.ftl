@@ -1,4 +1,4 @@
-package com.jiawa.train.${module}.resp;
+package io.xiaoyu.${module}.modular.${childModule}.resp;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
