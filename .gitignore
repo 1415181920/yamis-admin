@@ -1,1 +1,5 @@
 /.idea
+/cocoyam-serve/target/
+/cocoyam-modules/cocoyam-module-gen/target/
+/cocoyam-modules/cocoyam-module-auth/target/
+/cocoyam-common/target/

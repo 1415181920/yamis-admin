@@ -13,6 +13,6 @@ import org.springframework.stereotype.Service;
  * @since 2023-07-29
  */
 @Service
-public class AdminRolesServiceImpl extends ServiceImpl<AdminRolesMapper, AdminRoles> implements IService<AdminRoles> {
+public class AdminRolesServiceImpl {
 
 }
