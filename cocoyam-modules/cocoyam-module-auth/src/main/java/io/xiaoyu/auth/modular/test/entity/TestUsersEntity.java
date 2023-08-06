@@ -1,12 +1,12 @@
-package io.xiaoyu.auth.modular.login.entity;
+package io.xiaoyu.auth.modular.test.entity;
 
 import lombok.Data;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.util.Date;
 
 @Data
-@TableName("system_users")
-public class SystemUsersEntity {
+@TableName("test_users")
+public class TestUsersEntity {
 
     /**
     * 用户ID

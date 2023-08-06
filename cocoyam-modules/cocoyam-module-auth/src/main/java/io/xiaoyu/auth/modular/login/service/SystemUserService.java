@@ -1,7 +1,8 @@
 package io.xiaoyu.auth.modular.login.service;
 
-import io.xiaoyu.auth.modular.login.entity.AdminUsers;
 import com.baomidou.mybatisplus.extension.service.IService;
+import io.xiaoyu.auth.modular.login.entity.AdminUsers;
+import io.xiaoyu.auth.modular.login.entity.SystemUsersEntity;
 import io.xiaoyu.auth.modular.login.param.AuthAccountPasswordLoginParam;
 
 /**
@@ -12,7 +13,7 @@ import io.xiaoyu.auth.modular.login.param.AuthAccountPasswordLoginParam;
  * @author xiaoyu
  * @since 2023-07-27
  */
-public interface AdminUsersService extends IService<AdminUsers> {
+public interface SystemUserService extends IService<SystemUsersEntity> {
 
     //登录
     String doLogin(AuthAccountPasswordLoginParam authAccountPasswordLoginParam);
