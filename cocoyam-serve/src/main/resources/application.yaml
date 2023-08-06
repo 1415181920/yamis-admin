@@ -4,7 +4,7 @@ server:
 # Database connection properties
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/owl9
+    url: jdbc:mysql://localhost:3306/yamis
     username: root
-    password: 123456
+    password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
