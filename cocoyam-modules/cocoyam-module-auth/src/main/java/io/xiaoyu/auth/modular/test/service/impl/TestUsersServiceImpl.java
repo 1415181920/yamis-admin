@@ -4,7 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import io.xiaoyu.common.basic.service.BaseService;
 import io.xiaoyu.auth.modular.test.entity.TestUsersEntity;
 import io.xiaoyu.auth.modular.test.mapper.TestUsersMapper;
 import io.xiaoyu.auth.modular.test.req.TestUsersQueryReq;
@@ -18,7 +18,7 @@ import java.util.List;
 
 
 @Service
-public class TestUsersServiceImpl extends ServiceImpl<TestUsersMapper,TestUsersEntity> implements TestUsersService{
+public class TestUsersServiceImpl extends BaseService<TestUsersMapper,TestUsersEntity> implements TestUsersService{
 
     @Resource
     private TestUsersMapper testUsersMapper;

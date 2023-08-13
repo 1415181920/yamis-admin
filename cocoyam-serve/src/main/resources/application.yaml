@@ -3,6 +3,11 @@ server:
 
 # Database connection properties
 spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+  resources:
+    static-locations: classpath:/static/
   datasource:
     url: jdbc:mysql://localhost:3306/yamis
     username: root

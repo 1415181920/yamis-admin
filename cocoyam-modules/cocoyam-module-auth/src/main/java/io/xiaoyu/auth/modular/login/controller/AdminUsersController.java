@@ -4,7 +4,6 @@ import cn.dev33.satoken.stp.StpUtil;
 import io.xiaoyu.auth.modular.login.param.AuthAccountPasswordLoginParam;
 import io.xiaoyu.auth.modular.login.service.AdminUsersService;
 import io.xiaoyu.common.pojo.CommonResult;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
