@@ -16,14 +16,14 @@ public class ServerGenerator {
     static boolean readOnly = true;
 
 
-    private static final String url="jdbc:mysql://localhost:3306/yamis";//数据库配置
+    private static final String url="jdbc:mysql://localhost:3306/owl276";//数据库配置
     private static final String user="root";
-    private static final String  password="root";
+    private static final String  password="123456";
 
     static String serverPath = "cocoyam-modules/cocoyam-module-[module]/src/main/java/io/xiaoyu/[module]/modular/[childModule]/";
     static String module = "auth";//主模块名
-    static String childModule = "test";//子模块名
-    static String tableName = "test_users";//表名
+    static String childModule = "menus";//子模块名
+    static String tableName = "admin_menus";//表名
 
 
     public static void main(String[] args) throws Exception {
