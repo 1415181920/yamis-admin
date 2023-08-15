@@ -10,7 +10,7 @@ public class PageReq {
 
     @NotNull(message = "【每页条数】不能为空")
     @Max(value = 100, message = "【每页条数】不能超过100")
-    private Integer size;
+    private Integer perPage;
 
     public Integer getPage() {
         return page;
@@ -20,19 +20,19 @@ public class PageReq {
         this.page = page;
     }
 
-    public Integer getSize() {
-        return size;
+    public Integer getPerPage() {
+        return perPage;
     }
 
-    public void setSize(Integer size) {
-        this.size = size;
+    public void setPerPage(Integer perPage) {
+        this.perPage = perPage;
     }
 
     @Override
     public String toString() {
         return "PageReq{" +
                 "page=" + page +
-                ", size=" + size +
+                ", perPage=" + perPage +
                 '}';
     }
 }

@@ -25,7 +25,7 @@ public class SystemUsersServiceImpl extends ServiceImpl<SystemUsersMapper, Syste
 
     public PageResp<SystemUsersQueryResp> queryList(SystemUsersQueryReq req) {
 
-        Page<SystemUsersEntity> userPage = new Page<>(req.getPage(), req.getSize());
+        Page<SystemUsersEntity> userPage = new Page<>(req.getPage(), req.getPerPage());
         QueryWrapper<SystemUsersEntity> wrapper = new QueryWrapper<>();
 
         IPage<SystemUsersEntity> pageList = systemUsersMapper.selectPage(userPage, wrapper);
@@ -37,9 +37,9 @@ public class SystemUsersServiceImpl extends ServiceImpl<SystemUsersMapper, Syste
 
         PageResp<SystemUsersQueryResp> pageResp = new PageResp<>();
         pageResp.setPageNum(req.getPage());
-        pageResp.setPageSize(req.getSize());
+        pageResp.setPerPage(req.getPerPage());
         pageResp.setTotal(total);
-        pageResp.setList(list);
+        pageResp.setItems(list);
 
         return pageResp;
 

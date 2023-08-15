@@ -25,7 +25,7 @@ public class ${Domain}ServiceImpl extends BaseService<${Domain}Mapper,${Domain}E
 
     public PageResp<${Domain}QueryResp> queryList(${Domain}QueryReq req) {
 
-        Page<${Domain}Entity> userPage = new Page<>(req.getPage(), req.getSize());
+        Page<${Domain}Entity> userPage = new Page<>(req.getPage(), req.getPerPage());
         QueryWrapper<${Domain}Entity> wrapper = new QueryWrapper<>();
 
         IPage<${Domain}Entity> pageList = ${domain}Mapper.selectPage(userPage, wrapper);
@@ -35,9 +35,9 @@ public class ${Domain}ServiceImpl extends BaseService<${Domain}Mapper,${Domain}E
 
         PageResp<${Domain}QueryResp> pageResp = new PageResp<>();
         pageResp.setPageNum(req.getPage());
-        pageResp.setPageSize(req.getSize());
+        pageResp.setPerPage(req.getPerPage());
         pageResp.setTotal(total);
-        pageResp.setList(list);
+        pageResp.setItems(list);
         return pageResp;
     }
 

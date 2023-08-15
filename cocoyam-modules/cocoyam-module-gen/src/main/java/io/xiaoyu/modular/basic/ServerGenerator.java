@@ -21,9 +21,9 @@ public class ServerGenerator {
     private static final String  password="123456";
 
     static String serverPath = "cocoyam-modules/cocoyam-module-[module]/src/main/java/io/xiaoyu/[module]/modular/[childModule]/";
-    static String module = "auth";//主模块名
-    static String childModule = "menus";//子模块名
-    static String tableName = "admin_menus";//表名
+    static String module = "menu";//主模块名
+    static String childModule = "menu";//子模块名
+    static String tableName = "admin_permissions";//表名
 
 
     public static void main(String[] args) throws Exception {
@@ -56,10 +56,11 @@ public class ServerGenerator {
         param.put("childModule", childModule);
         System.out.println("组装参数：" + param);
 
-        Console.log(fieldList);
+//        Console.log(fieldList);
 
         gen(Domain, param, "entity", "entity");
         gen(Domain, param, "controller/admin", "adminController");
+        gen(Domain, param, "controller/admin/view", "viewController");
         gen(Domain, param, "req", "saveReq");
         gen(Domain, param, "req", "queryReq");
         gen(Domain, param, "resp", "queryResp");
