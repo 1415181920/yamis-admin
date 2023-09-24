@@ -21,7 +21,6 @@
 		<module>cocoyam-common</module>
 		<module>cocoyam-serve</module>
 		<module>cocoyam-modules</module>
-        <module>cocoyam-modules/cocoyam-module-sys</module>
     </modules>
 
 	<properties>
@@ -36,6 +35,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+
 
 	</dependencies>
 

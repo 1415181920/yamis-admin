@@ -24,12 +24,18 @@
             <version>8.0.28</version>
         </dependency>
 
-<!--        //????? why 要这么写 才能访问 127.0.0.1:8090/test才能范围其他包的控制器-->
         <dependency>
             <groupId>io.xiaoyu</groupId>
-            <artifactId>cocoyam-modules</artifactId>
+            <artifactId>cocoyam-module-sys</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+
+        <dependency>
+            <groupId>io.xiaoyu</groupId>
+            <artifactId>cocoyam-module-auth</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
 
     </dependencies>
 

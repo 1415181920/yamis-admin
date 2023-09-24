@@ -1,26 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>io.xiaoyu</groupId>
         <artifactId>cocoyam-modules</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
+    <groupId>io.xiaoyu</groupId>
     <artifactId>cocoyam-module-sys</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>cocoyam-module-sys</name>
+    <description>cocoyam-module-sys</description>
+    <packaging>jar</packaging>
 
     <dependencies>
+        <!-- 添加模块所需的依赖项 -->
         <dependency>
             <groupId>io.xiaoyu</groupId>
             <artifactId>cocoyam-common</artifactId>
             <version>1.0</version>
         </dependency>
+
+        <!-- 添加其他依赖项 -->
+
+        <!-- 添加 sa-token-spring-boot-starter 依赖项（如果需要） -->
+        <dependency>
+            <groupId>cn.dev33</groupId>
+            <artifactId>sa-token-spring-boot-starter</artifactId>
+            <version>1.35.0.RC</version>
+        </dependency>
     </dependencies>
+
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+        <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
