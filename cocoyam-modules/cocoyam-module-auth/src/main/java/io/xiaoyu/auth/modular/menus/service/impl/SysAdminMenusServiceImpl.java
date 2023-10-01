@@ -7,10 +7,10 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.xiaoyu.common.basic.service.BaseService;
 import io.xiaoyu.auth.modular.menus.entity.AdminMenusEntity;
-import io.xiaoyu.auth.modular.menus.mapper.AdminMenusMapper;
+import io.xiaoyu.auth.modular.menus.mapper.SysAdminMenusMapper;
 import io.xiaoyu.auth.modular.menus.req.AdminMenusQueryReq;
 import io.xiaoyu.auth.modular.menus.resp.AdminMenusQueryResp;
-import io.xiaoyu.auth.modular.menus.service.AdminMenusService;
+import io.xiaoyu.auth.modular.menus.service.SysAdminMenusService;
 import io.xiaoyu.common.resp.PageResp;
 import org.springframework.stereotype.Service;
 
@@ -21,17 +21,17 @@ import java.util.List;
 
 
 @Service
-public class AdminMenusServiceImpl extends BaseService<AdminMenusMapper,AdminMenusEntity> implements AdminMenusService{
+public class SysAdminMenusServiceImpl extends BaseService<SysAdminMenusMapper,AdminMenusEntity> implements SysAdminMenusService {
 
     @Resource
-    private AdminMenusMapper adminMenusMapper;
+    private SysAdminMenusMapper sysAdminMenusMapper;
 
     public PageResp<AdminMenusQueryResp> queryList(AdminMenusQueryReq req) {
 
         Page<AdminMenusEntity> userPage = new Page<>(req.getPage(), req.getPerPage());
         QueryWrapper<AdminMenusEntity> wrapper = new QueryWrapper<>();
 
-        IPage<AdminMenusEntity> pageList = adminMenusMapper.selectPage(userPage, wrapper);
+        IPage<AdminMenusEntity> pageList = sysAdminMenusMapper.selectPage(userPage, wrapper);
         long total = pageList.getTotal();
         List<AdminMenusEntity> records = pageList.getRecords();
 
@@ -98,7 +98,7 @@ public class AdminMenusServiceImpl extends BaseService<AdminMenusMapper,AdminMen
     }
 
     public AdminMenusQueryResp queryById(Long id) {
-        AdminMenusEntity adminMenusEntity = adminMenusMapper.selectById(id);
+        AdminMenusEntity adminMenusEntity = sysAdminMenusMapper.selectById(id);
         return BeanUtil.copyProperties(adminMenusEntity, AdminMenusQueryResp.class);
     }
 }

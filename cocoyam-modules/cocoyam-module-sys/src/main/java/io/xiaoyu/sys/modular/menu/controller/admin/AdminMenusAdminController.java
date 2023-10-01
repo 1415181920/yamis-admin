@@ -18,6 +18,11 @@ public class AdminMenusAdminController extends AdminBaseController{
     @Resource
     private AdminMenusService adminMenusService;
 
+    /**
+     * 菜单列表
+     * @param req
+     * @return
+     */
     @GetMapping("/query-list")
     public CommonAdminResp<PageResp<AdminMenusQueryResp>> queryList(@Valid AdminMenusQueryReq req) {
         PageResp<AdminMenusQueryResp> list = adminMenusService.queryList(req);

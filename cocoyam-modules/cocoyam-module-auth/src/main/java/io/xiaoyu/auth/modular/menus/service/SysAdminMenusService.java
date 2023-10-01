@@ -8,7 +8,7 @@ import io.xiaoyu.common.resp.PageResp;
 
 import java.util.ArrayList;
 
-public interface AdminMenusService extends IBaseService<AdminMenusEntity> {
+public interface SysAdminMenusService extends IBaseService<AdminMenusEntity> {
 
     PageResp<AdminMenusQueryResp> queryList(AdminMenusQueryReq req);
 
