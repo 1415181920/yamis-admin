@@ -95,6 +95,10 @@ public class CommonAdminResp<T> implements Serializable {
         return new CommonAdminResp<>(STATUS_SUCCESS, msg, null);
     }
 
+    public static <T> CommonAdminResp<T> ok(String msg,T data) {
+        return new CommonAdminResp<>(STATUS_SUCCESS, msg, data);
+    }
+
     public static <T> CommonAdminResp<T> status(int status) {
         return new CommonAdminResp<>(status, null, null);
     }
