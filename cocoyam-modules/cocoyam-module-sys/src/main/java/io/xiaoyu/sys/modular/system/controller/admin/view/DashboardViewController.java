@@ -26,6 +26,7 @@ public class DashboardViewController {
     @GetMapping("/admin-api/dashboard")
     public CommonAdminResp<Map<Object,Object>> getDashboard() {
 
+        AmisFactory.Html().html("111").render();
 
         Map<Object,Object> page = AmisFactory.BasePage().css(this.css()).body(
             new Object[]{

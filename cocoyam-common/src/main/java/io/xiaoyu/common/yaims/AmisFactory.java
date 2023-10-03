@@ -379,7 +379,8 @@ public  class AmisFactory {
 
 
 
-    public static Html  Html(){
+
+    public static Html Html(){
         return new Html();
     }
 
