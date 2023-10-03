@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Data
 @TableName("admin_menus")
-public class AdminMenusEntity {
+public class SysAdminMenusEntity {
 
     /**
     * 
