@@ -1,6 +1,3 @@
-
-            Yamis Admin     
-         快速且灵活的后台框架     
 #  							**Yamis Admin**   
 
 ​																		快速且灵活的后台框架 
