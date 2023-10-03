@@ -70,7 +70,7 @@ public class RendererMap {
 				map.put("handlebars-editor", EditorControl.class);
 				map.put("hbox", HBox.class);
 				map.put("hidden", HiddenControl.class);
-				map.put("html", Html.class);
+				map.put("html", HtmlControl.class);
 				map.put("html-editor", EditorControl.class);
 				map.put("icon", Icon.class);
 				map.put("icon-picker", IconPickerControl.class);

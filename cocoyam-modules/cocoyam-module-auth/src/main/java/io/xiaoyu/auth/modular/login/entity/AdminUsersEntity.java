@@ -8,8 +8,6 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 /**
  * <p>
@@ -21,7 +19,7 @@ import lombok.Setter;
  */
 @Data
 @TableName("admin_users")
-public class AdminUsers implements Serializable {
+public class AdminUsersEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

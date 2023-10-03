@@ -13,4 +13,8 @@ public class AuthAccountPasswordLoginParam {
 
     private String password;
 
+    private String sys_captcha;
+
+    private String captcha;
+
 }

@@ -179,6 +179,13 @@ public class Action extends BaseRenderer
         return set("type", value);
     }
 
+    /**
+     * 背景透明
+     */
+    public Action blank(Boolean bool){
+        return set("blank", bool);
+    }
+
     public Action set(String key, Object value) 
     {
         super.set(key, value);

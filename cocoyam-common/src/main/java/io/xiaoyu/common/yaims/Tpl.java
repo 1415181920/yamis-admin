@@ -9,7 +9,7 @@ package io.xiaoyu.common.yaims;
  * @version v3.0.0
  * @since 2023-05-13
  */
-public class Tpl extends BaseRenderer 
+public class Tpl extends BaseRenderer
 {
     public Tpl()
     {
@@ -202,7 +202,7 @@ public class Tpl extends BaseRenderer
         return set("wrapperComponent", value);
     }
 
-    public Tpl set(String key, Object value) 
+    public Tpl set(String key, Object value)
     {
         super.set(key, value);
         return this;

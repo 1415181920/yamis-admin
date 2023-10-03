@@ -39,7 +39,7 @@ public class AdminSettingServiceImpl implements AdminSettingService {
         footer.setHtml("Cocoyam");
         layout.setFooter(footer);
         adminSettingResponse.setLayout(layout);
-        adminSettingResponse.setLocale("zh-CN");
+        adminSettingResponse.setLocale("zh_CN");
         adminSettingResponse.setLogin_captcha(true);
         adminSettingResponse.setLogo("https://cocoyam.oss-cn-beijing.aliyuncs.com/cocoyam/logo.png");
         AdminSettingResponse.Nav nav = new AdminSettingResponse.Nav();

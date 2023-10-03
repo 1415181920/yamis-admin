@@ -377,9 +377,12 @@ public  class AmisFactory {
         return new HiddenControl();
     }
 
-    public static Html Html() {
+
+
+    public static Html  Html(){
         return new Html();
     }
+
 
     public static Icon Icon() {
         return new Icon();
@@ -607,6 +610,10 @@ public  class AmisFactory {
 
     public static Page Page() {
         return new Page();
+    }
+
+    public static BasePage BasePage() {
+        return new BasePage();
     }
 
     public static Pagination Pagination() {

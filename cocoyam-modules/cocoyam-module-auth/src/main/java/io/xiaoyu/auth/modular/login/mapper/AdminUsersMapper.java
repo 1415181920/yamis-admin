@@ -1,6 +1,6 @@
 package io.xiaoyu.auth.modular.login.mapper;
 
-import io.xiaoyu.auth.modular.login.entity.AdminUsers;
+import io.xiaoyu.auth.modular.login.entity.AdminUsersEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -13,7 +13,7 @@ import org.apache.ibatis.annotations.Mapper;
  * @since 2023-07-27
  */
 @Mapper
-public interface AdminUsersMapper extends BaseMapper<AdminUsers> {
+public interface AdminUsersMapper extends BaseMapper<AdminUsersEntity> {
 //    selectOne
 
 }

@@ -9,13 +9,30 @@ spring:
   resources:
     static-locations: classpath:/static/
   datasource:
+    maxLifetime: 500000,
     url: jdbc:mysql://106.52.14.176:3306/yamis
     username: yamis
     password: yamis123456
     driver-class-name: com.mysql.cj.jdbc.Driver
+  # redis配置
+  redis:
+    database: 1
+    host: 127.0.0.1
+    port: 6379
+    timeout: 5000ms
+    lettuce:
+      pool:
+        max-active: 200
+        max-wait: -1ms
+        max-idle: 10
+        min-idle: 0
 
 # 网站设置
 website:
   app_name: cocoyam
   logo: cocoyam
   footer: cocoyam
+
+sa-token:
+  token-prefix: Bearer # token前缀
+  token-name: Authorization  # token名称

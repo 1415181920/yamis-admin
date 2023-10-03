@@ -3,7 +3,7 @@
 <mapper namespace="io.xiaoyu.auth.modular.login.mapper.AdminUsersMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="io.xiaoyu.auth.modular.login.entity.AdminUsers">
+    <resultMap id="BaseResultMap" type="io.xiaoyu.auth.modular.login.entity.AdminUsersEntity">
         <id column="id" property="id" />
         <result column="username" property="username" />
         <result column="password" property="password" />

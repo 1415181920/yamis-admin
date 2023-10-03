@@ -30,9 +30,13 @@ public abstract  class BaseRenderer {
         return "111";
     }
 
+    //渲染
+    public Map<Object, Object> toArray(){
+        return amisSchema;
+    }
 
-
-    public Map<Object, Object> toArray() {
+    //渲染
+    public Map<Object, Object> render(){
         return amisSchema;
     }
 }

@@ -25,20 +25,20 @@ public class AdminMenusViewController extends AdminBaseController{
                     api("/admin-api/admin-menus/menu/query-list").
                     syncLocation(false).
                     columns(new Object[]{
-                            AmisFactory.TableColumn().name("id").label("id").toArray(),
-                            AmisFactory.TableColumn().name("parent_id").label("parent_id").toArray(),
-                            AmisFactory.TableColumn().name("order").label("order").toArray(),
-                            AmisFactory.TableColumn().name("title").label("title").toArray(),
-                            AmisFactory.TableColumn().name("icon").label("icon").toArray(),
-                            AmisFactory.TableColumn().name("url").label("url").toArray(),
-                            AmisFactory.TableColumn().name("url_type").label("url_type").toArray(),
-                            AmisFactory.TableColumn().name("visible").label("visible").toArray(),
-                            AmisFactory.TableColumn().name("is_home").label("is_home").toArray(),
-                            AmisFactory.TableColumn().name("extension").label("extension").toArray(),
-                            AmisFactory.TableColumn().name("created_at").label("created_at").toArray(),
-                            AmisFactory.TableColumn().name("updated_at").label("updated_at").toArray(),
-                    }).toArray(),
-        }).toArray();
+                            AmisFactory.TableColumn().name("id").label("id").render(),
+                            AmisFactory.TableColumn().name("parent_id").label("parent_id").render(),
+                            AmisFactory.TableColumn().name("order").label("order").render(),
+                            AmisFactory.TableColumn().name("title").label("title").render(),
+                            AmisFactory.TableColumn().name("icon").label("icon").render(),
+                            AmisFactory.TableColumn().name("url").label("url").render(),
+                            AmisFactory.TableColumn().name("url_type").label("url_type").render(),
+                            AmisFactory.TableColumn().name("visible").label("visible").render(),
+                            AmisFactory.TableColumn().name("is_home").label("is_home").render(),
+                            AmisFactory.TableColumn().name("extension").label("extension").render(),
+                            AmisFactory.TableColumn().name("created_at").label("created_at").render(),
+                            AmisFactory.TableColumn().name("updated_at").label("updated_at").render(),
+                    }).render(),
+        }).render();
 
         return new CommonAdminResp<>(page);
     }
