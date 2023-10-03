@@ -26,8 +26,6 @@ public class DashboardViewController {
     @GetMapping("/admin-api/dashboard")
     public CommonAdminResp<Map<Object,Object>> getDashboard() {
 
-        AmisFactory.Html().html("111").render();
-
         Map<Object,Object> page = AmisFactory.BasePage().css(this.css()).body(
             new Object[]{
                 AmisFactory.Grid().columns(new Object[]{
@@ -37,6 +35,13 @@ public class DashboardViewController {
                                 this.cube(),
                         }).render()
                 }).render(),
+                AmisFactory.Grid().columns(new Object[]{
+                        this.lineChart(),
+                        AmisFactory.Flex().className("h-full").items(new Object[]{
+                                this.clock(),
+                                this.hitokoto(),
+                        }).direction("column").render()
+                }).render()
             }
         ).render();
 
@@ -44,8 +49,8 @@ public class DashboardViewController {
 
     }
 
-    private  Map<String, Map<String, String>> css() {
-        Map<String, Map<String, String>> cssMap = new HashMap<>();
+    private  Map<String, Object> css() {
+        Map<String, Object> cssMap = new HashMap<>();
 
         Map<String, String> clearCardMB = new HashMap<>();
         clearCardMB.put("margin-bottom", "0 !important");
@@ -63,11 +68,12 @@ public class DashboardViewController {
         bgBlingbling.put("animation", "gradient 60s ease infinite");
         cssMap.put(".bg-blingbling", bgBlingbling);
 
-        Map<String, String> keyframesGradient = new HashMap<>();
-        keyframesGradient.put("0%", "background-position:0% 0%");
-        keyframesGradient.put("50%", "background-position:100% 100%");
-        keyframesGradient.put("100%", "background-position:0% 0%");
-        cssMap.put("@keyframes gradient", keyframesGradient);
+
+        cssMap.put("@keyframes gradient", new String[]{
+                        "0%{background-position:0% 0%}\n" +
+                        "50%{background-position:100% 100%}\n" +
+                        "100%{background-position:0% 0%}"
+        });
 
         Map<String, String> bgBlingblingCardTitle = new HashMap<>();
         bgBlingblingCardTitle.put("color", "#fff");
@@ -76,6 +82,56 @@ public class DashboardViewController {
         return cssMap;
     }
 
+    private Map<Object,Object> hitokoto(){
+      return   AmisFactory.Card().className("h-full clear-card-mb")
+                .body(AmisFactory.Custom().html("<div class=\"h-full flex flex-col mt-5 py-5 px-7\">\n" +
+                        "    <div>『</div>\n" +
+                        "    <div class=\"flex flex-1 items-center w-full justify-center\" id=\"hitokoto\">\n" +
+                        "        <a class=\"text-dark\" href=\"#\" id=\"hitokoto_text\" target=\"_blank\"></a>\n" +
+                        "    </div>\n" +
+                        "    <div class=\"flex justify-end\">』</div>\n" +
+                        "</div>\n" +
+                        "<div class=\"flex justify-end mt-3\">\n" +
+                        "    ——&nbsp;\n" +
+                        "    <span id=\"hitokoto_from_who\"></span>\n" +
+                        "    <span>「</span>\n" +
+                        "    <span id=\"hitokoto_from\"></span>\n" +
+                        "    <span>」</span>\n" +
+                        "</div>")
+                        .onMount("fetch('https://v1.hitokoto.cn?c=i')\n" +
+                                "    .then(response => response.json())\n" +
+                                "    .then(data => {\n" +
+                                "      const hitokoto = document.querySelector('#hitokoto_text')\n" +
+                                "      hitokoto.href = `https://hitokoto.cn/?uuid=\\${data.uuid}`\n" +
+                                "      hitokoto.innerText = data.hitokoto\n" +
+                                "      document.querySelector('#hitokoto_from_who').innerText = data.from_who\n" +
+                                "      document.querySelector('#hitokoto_from').innerText = data.from\n" +
+                                "    })\n" +
+                                "    .catch(console.error)").render()).render()
+                ;
+
+
+    }
+
+
+    private Map<Object,Object> clock() {
+        return AmisFactory.Card().className("h-full bg-blingbling").header(new HashMap<String,String>(){{
+            put("title", "时钟");
+        }}).body(new Object[]{
+            AmisFactory.Custom().name("clock")
+                    .html("<div id='clock' class='text-4xl'></div><div id='clock-date' class='mt-5'></div>")
+                    .onMount(
+                            "const clock = document.getElementById('clock');\n" +
+                                    "const tick = () => {\n" +
+                                    "    clock.innerHTML = (new Date()).toLocaleTimeString();\n" +
+                                    "    requestAnimationFrame(tick);\n" +
+                                    "};\n" +
+                                    "tick();\n" +
+                                    "\n" +
+                                    "const clockDate = document.getElementById('clock-date');\n" +
+                                    "clockDate.innerHTML = (new Date()).toLocaleDateString();").render()
+       }).render();
+    }
 
     public Map<Object, Object> frameworkInfo() {
         return AmisFactory.Card().className("h-96").body(
@@ -146,7 +202,7 @@ public class DashboardViewController {
     }
 
 
-    public Card lineChart() {
+    public Map<Object,Object> lineChart() {
         Random random = new Random();
 
         StringBuilder randomArr = new StringBuilder();
@@ -171,8 +227,8 @@ public class DashboardViewController {
                 "}";
 
         return  AmisFactory.Card().className("clear-card-mb").body(
-                AmisFactory.Chart().height(380).className("h-96").config(chartConfig)
-        );
+                AmisFactory.Chart().height(380).className("h-96").config(chartConfig).render()
+        ).set("md",8).render();
     }
 
     public  Map<Object,Object> cube() {
@@ -212,13 +268,9 @@ public class DashboardViewController {
                 "</style><div class='cube-box'><div class='cube'>" +
                 "<div></div><div></div><div></div><div></div><div></div><div></div>" +
                 "</div></div>";
-         AmisFactory.Card().className("h-96 ml-4 w-8/12").body(
-            new Object[]{
-
-            }
-        ).render();
-
-        return null;
+        return AmisFactory.Card().className("h-96 ml-4 w-8/12").body(
+                 AmisFactory.Html().html(html).render()
+         ).render();
 
     }
 
