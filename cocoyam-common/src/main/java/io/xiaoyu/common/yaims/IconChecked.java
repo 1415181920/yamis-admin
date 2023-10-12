@@ -13,7 +13,7 @@ public class IconChecked extends BaseRenderer
 {
     public IconChecked()
     {
-
+        set("type", "icon-checked");
     }
 
     public IconChecked id(Object value)

@@ -13,7 +13,7 @@ public class ListBodyField extends BaseRenderer
 {
     public ListBodyField()
     {
-
+        set("type","list-body-field");
     }
 
     /**

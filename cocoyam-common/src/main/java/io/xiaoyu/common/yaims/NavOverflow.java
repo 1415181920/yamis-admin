@@ -13,7 +13,7 @@ public class NavOverflow extends BaseRenderer
 {
     public NavOverflow()
     {
-
+        set("type","nav-overflow");
     }
 
     /**

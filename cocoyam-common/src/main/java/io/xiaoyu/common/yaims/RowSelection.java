@@ -13,7 +13,7 @@ public class RowSelection extends BaseRenderer
 {
     public RowSelection()
     {
-
+        set("type","row-selection");
     }
 
     /**

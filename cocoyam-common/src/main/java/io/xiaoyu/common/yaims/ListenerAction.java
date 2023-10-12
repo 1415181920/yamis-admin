@@ -13,7 +13,7 @@ public class ListenerAction extends BaseRenderer
 {
     public ListenerAction()
     {
-
+        set("type","listener");
     }
 
     public ListenerAction actionType(Object value)

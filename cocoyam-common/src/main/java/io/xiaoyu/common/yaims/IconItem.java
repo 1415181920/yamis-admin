@@ -13,7 +13,7 @@ public class IconItem extends BaseRenderer
 {
     public IconItem()
     {
-
+        set("type","icon-item");
     }
 
     public IconItem icon(Object value)

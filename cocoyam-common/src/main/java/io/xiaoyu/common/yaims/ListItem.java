@@ -13,7 +13,7 @@ public class ListItem extends BaseRenderer
 {
     public ListItem()
     {
-
+        set("type","list-item");
     }
 
     public ListItem actions(Object value)

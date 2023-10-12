@@ -13,7 +13,7 @@ public class Options extends BaseRenderer
 {
     public Options()
     {
-
+        set("type","options");
     }
 
     /**

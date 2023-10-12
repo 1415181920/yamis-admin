@@ -7,7 +7,7 @@ package io.xiaoyu.common.yaims;
  *
  * @link https://aisuda.bce.baidu.com/amis/zh-CN/components/button
  */
-class Button extends VanillaAction
+public class Button extends VanillaAction
 {
     public Button set(String key, Object value) 
     {

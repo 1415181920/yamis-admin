@@ -13,7 +13,7 @@ public class NavItem extends BaseRenderer
 {
     public NavItem()
     {
-
+        set("type","nav-item");
     }
 
     public NavItem accordion(boolean value)

@@ -13,7 +13,6 @@ public class QRCodeImageSettings extends BaseRenderer
 {
     public QRCodeImageSettings()
     {
-
     }
 
     public QRCodeImageSettings excavate(boolean value)

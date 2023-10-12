@@ -13,7 +13,7 @@ public class PortletTab extends BaseRenderer
 {
     public PortletTab()
     {
-
+        set("type","portlet-tab");
     }
 
     /**
