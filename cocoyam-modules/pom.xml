@@ -19,6 +19,7 @@
     <modules>
         <module>cocoyam-module-auth</module>
         <module>cocoyam-module-sys</module>
+        <module>cocoyam-module-gen</module>
     </modules>
 
     <properties>

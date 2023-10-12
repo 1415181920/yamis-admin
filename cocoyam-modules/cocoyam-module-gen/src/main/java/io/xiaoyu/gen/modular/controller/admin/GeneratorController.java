@@ -1,14 +1,14 @@
-package io.xiaoyu.gen.modular.controller;
+package io.xiaoyu.gen.modular.controller.admin;
 
 
 import cn.hutool.core.lang.Console;
+import io.xiaoyu.gen.modular.req.GenCodeReq;
 import io.xiaoyu.gen.modular.util.CommonUtil;
 import io.xiaoyu.gen.modular.util.DbUtil;
 import io.xiaoyu.gen.modular.util.Field;
 import io.xiaoyu.gen.modular.util.FreemarkerUtil;
 import freemarker.template.TemplateException;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,15 +23,22 @@ public class GeneratorController {
     private static final String user="yamis";
     private static final String  password="yamis123456";
 
-    static String serverPath = "cocoyam-modules/cocoyam-module-[module]/src/main/java/io/xiaoyu/[module]/modular/[childModule]/";
-    static String module = "sys";//主模块名
-    static String childModule = "admin";//子模块名
-    static String tableName = "admin_users";//表名
+    static String serverPath = "";
+    static String module = "";//主模块名
+    static String childModule = "";//子模块名
+    static String tableName = "";//表名
 
 
-    @GetMapping("/admin-api/gen-code")
-    public void genCode() throws Exception {
-        
+    @PostMapping("/admin-api/gen-code")
+    public void genCode(@RequestBody GenCodeReq genCodeReq) throws Exception {
+
+        serverPath = genCodeReq.getServerPath();
+        module = genCodeReq.getModule();
+        childModule = genCodeReq.getChildModule();
+        tableName = genCodeReq.getTableName();
+
+        System.out.println(tableName);
+
         DbUtil.url = url;
         DbUtil.user = user;
         DbUtil.password = password;

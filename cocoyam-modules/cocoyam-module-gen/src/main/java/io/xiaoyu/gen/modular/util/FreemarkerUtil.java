@@ -12,9 +12,7 @@ import java.io.IOException;
 import java.util.Map;
 
 public class FreemarkerUtil {
-
-    static String ftlPath = "cocoyam-modules/cocoyam-module-gen/src/main/java/io/xiaoyu/modular/ftl/";
-
+    static String ftlPath = "cocoyam-modules/cocoyam-module-gen/src/main/java/io/xiaoyu/gen/modular/ftl/";
     static Template temp;
 
     /**
