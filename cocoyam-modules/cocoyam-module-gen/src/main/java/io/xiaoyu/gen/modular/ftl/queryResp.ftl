@@ -2,6 +2,7 @@ package io.xiaoyu.${module}.modular.${childModule}.resp;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+import com.fasterxml.jackson.annotation.JsonProperty;
 <#list typeSet as type>
 <#if type=='Date'>
 import java.util.Date;
@@ -30,6 +31,7 @@ public class ${Domain}QueryResp {
     <#if field.name=='id' || field.name?ends_with('_id')>
     @JsonSerialize(using= ToStringSerializer.class)
     </#if>
+    @JsonProperty("${field.name}")
     private ${field.javaType} ${field.nameHump};
 
     </#list>

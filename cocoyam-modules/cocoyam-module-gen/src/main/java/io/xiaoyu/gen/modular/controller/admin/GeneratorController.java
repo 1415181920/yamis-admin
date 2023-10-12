@@ -2,6 +2,7 @@ package io.xiaoyu.gen.modular.controller.admin;
 
 
 import cn.hutool.core.lang.Console;
+import io.xiaoyu.common.resp.CommonAdminResp;
 import io.xiaoyu.gen.modular.req.GenCodeReq;
 import io.xiaoyu.gen.modular.util.CommonUtil;
 import io.xiaoyu.gen.modular.util.DbUtil;
@@ -30,7 +31,7 @@ public class GeneratorController {
 
 
     @PostMapping("/admin-api/gen-code")
-    public void genCode(@RequestBody GenCodeReq genCodeReq) throws Exception {
+    public CommonAdminResp<String> genCode(@RequestBody GenCodeReq genCodeReq) throws Exception {
 
         serverPath = genCodeReq.getServerPath();
         module = genCodeReq.getModule();
@@ -78,6 +79,7 @@ public class GeneratorController {
         gen(Domain, param, "service", "service");
         gen(Domain, param, "mapper", "mapper");
         genXml(Domain, param, "mapper/mapping", "mapping");
+        return CommonAdminResp.ok("成功！");
     }
 
     private static void gen(String Domain, Map<String, Object> param, String packageName, String target) throws IOException, TemplateException {

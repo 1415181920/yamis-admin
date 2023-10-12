@@ -22,7 +22,7 @@ public class ${Domain}ViewController extends AdminBaseController{
         Map<Object, Object> page = AmisFactory.Page().body(new Object[]{
             AmisFactory.
                     CRUDTable().
-                    api("/admin-api/${do_main}/${childModule}/query-list").
+                    api("/${do_main}/${childModule}/query-list").
                     syncLocation(false).
                     columns(new Object[]{
                         <#list fieldList as field>
