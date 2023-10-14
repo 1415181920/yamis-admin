@@ -7,29 +7,29 @@ import io.xiaoyu.common.yaims.AmisFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import java.util.Map;
+import java.util.HashMap;
 
 /**
  * 视图层控制器
  */
 @RestController
-@RequestMapping("/admin-api/${do_main}/${childModule}")
+@RequestMapping("/admin-api/${module}/${childModule}/${do_main}")
 public class ${Domain}ViewController extends AdminBaseController{
 
     @GetMapping("/list-view")
-    public CommonAdminResp<Map<Object, Object>> listView() {
+    public CommonAdminResp<HashMap<Object, Object>> listView() {
 
-        Map<Object, Object> page = AmisFactory.Page().body(new Object[]{
+        HashMap<Object, Object> page = AmisFactory.Page().body(new Object[]{
             AmisFactory.
                     CRUDTable().
-                    api("/${do_main}/${childModule}/query-list").
+                    api("/admin-api/${module}/${childModule}/${do_main}/query-list").
                     syncLocation(false).
                     columns(new Object[]{
                         <#list fieldList as field>
-                            AmisFactory.TableColumn().name("${field.name}").label("${field.name}").toArray(),
+                            AmisFactory.TableColumn().name("${field.name}").label("${field.name}").render(),
                         </#list>
-                    }).toArray(),
-        }).toArray();
+                    }).render(),
+        }).render();
 
         return new CommonAdminResp<>(page);
     }

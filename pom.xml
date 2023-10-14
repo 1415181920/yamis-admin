@@ -36,6 +36,15 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+		<!-- Spring Boot AOP -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
+
+
+
+
 		<!-- 提供Redis连接池 -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>

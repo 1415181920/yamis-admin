@@ -1,13 +1,11 @@
 package io.xiaoyu.common.yaims;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
-import java.util.Map;
 
 public abstract  class BaseRenderer {
 
     public String type;
-    public Map<Object, Object> amisSchema = new HashMap<>();
+    public HashMap<Object, Object> amisSchema = new HashMap<>();
 
 
 
@@ -24,21 +22,19 @@ public abstract  class BaseRenderer {
 //        return amisSchema;
 //    }
 
-    public String toJson() {
-//        Gson gson = new Gson();
-//        return gson.toJson(amisSchema);
-        return "111";
-    }
-
     //渲染
-    public Map<Object, Object> toArray(){
+    public HashMap<Object, Object> toArray(){
         return amisSchema;
     }
 
+
     //渲染
-    public Map<Object, Object> render(){
+    public HashMap<Object, Object> render(){
         return amisSchema;
     }
+
+
+
 }
 
 

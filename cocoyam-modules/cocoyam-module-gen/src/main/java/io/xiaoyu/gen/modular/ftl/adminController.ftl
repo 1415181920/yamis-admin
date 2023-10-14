@@ -12,7 +12,7 @@ import javax.annotation.Resource;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/admin-api/${do_main}/${childModule}")
+@RequestMapping("/admin-api/${module}/${childModule}/${do_main}")
 public class ${Domain}AdminController extends AdminBaseController{
 
     @Resource

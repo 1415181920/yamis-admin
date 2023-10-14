@@ -7,6 +7,8 @@ import io.xiaoyu.common.yaims.AmisFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -17,9 +19,9 @@ import java.util.Map;
 public class AdminMenusViewController extends AdminBaseController{
 
     @GetMapping("/list-view")
-    public CommonAdminResp<Map<Object, Object>> listView() {
+    public CommonAdminResp<HashMap<Object, Object>> listView() {
 
-        Map<Object, Object> page = AmisFactory.Page().body(new Object[]{
+        HashMap<Object, Object> page = AmisFactory.Page().body(new Object[]{
             AmisFactory.
                     CRUDTable().
                     api("/admin-api/admin-menus/menu/query-list").
