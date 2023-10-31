@@ -1,40 +1,75 @@
-#  							**Yamis Admin**   
-
-​																		快速且灵活的后台框架 
-
-​														官网 | Demo | Github | Gitee | 文档 | 加群
-
-项目介绍
-
-基于 springboot 、 amis 开发的后台框架, 快速且灵活~
-
--  基于 amis 以 json 的方式构建页面，减少前端开发工作量，提升开发效率。
--  在 amis 100多个组件都不满足的情况下, 可自行开发前端。
--  框架为前后端分离 (不用再因为框架而束手束脚~)。
+#* * Yamis Admin**
 
 
 
-内置功能
+Fast and flexible backend framework
 
--  基础后台功能
 
-  -  后台用户管理
 
-  - 角色管理
+Official Website | Demo | Github | Gitee | Documents | Add Group
 
-  -  权限管理
 
-  -  菜单管理
 
-  -  代码生成器
+Project Introduction
 
-  -  保存生成记录
 
-  -  导入/导出生成记录
 
-  -  可使用命令清除生成的内容
+A backend framework developed based on Springboot and Amis, fast and flexible~
 
-  -  无需更改代码即可生成完整功能
 
-- ● Amis 全组件封装 120+ , 无需前端开发即可完成复杂页面
 
+-Building pages based on AMIS using JSON reduces front-end development workload and improves development efficiency.
+
+-In the case where more than 100 components of Amis are not met, the front-end can be developed independently.
+
+-The frame is separated at the front and rear ends (there is no longer any need to be tied down by the frame~).
+
+
+
+
+
+Built-in features
+
+
+
+-Basic backend functions
+
+
+
+-Background User Management
+
+
+
+-Role Management
+
+
+
+-Permission management
+
+
+
+-Menu management
+
+
+
+-Code Generator
+
+
+
+-Save Generation Record
+
+
+
+-Import/Export Generate Records
+
+
+
+-The generated content can be cleared using commands
+
+
+
+-Generate full functionality without changing code
+
+
+
+-Amis fully packaged with over 120 components, completing complex pages without the need for front-end development
