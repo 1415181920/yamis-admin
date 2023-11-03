@@ -6,14 +6,13 @@ spring:
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html
-  resources:
-    static-locations: classpath:/static/
   datasource:
     maxLifetime: 500000,
     url: jdbc:mysql://106.52.14.176:3306/yamis
     username: yamis
     password: yamis123456
     driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
   # redis配置
   redis:
     database: 1
@@ -26,12 +25,16 @@ spring:
         max-wait: -1ms
         max-idle: 10
         min-idle: 0
+  web:
+    resources:
+      static-locations: classpath:/static/
 
 # 网站设置
 website:
-  app_name: cocoyam
-  logo: cocoyam
+  app_name: YamisAdmin
+  logo: /logo.png
   footer: cocoyam
+  url: http://localhost:8090 # 后端网站地址
 
 sa-token:
   token-prefix: Bearer # token前缀

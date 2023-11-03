@@ -42,7 +42,11 @@
 			<artifactId>spring-boot-starter-aop</artifactId>
 		</dependency>
 
-
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid-spring-boot-starter</artifactId>
+			<version>1.1.13</version>
+		</dependency>
 
 
 		<!-- 提供Redis连接池 -->
