@@ -13,12 +13,11 @@ import io.xiaoyu.auth.modular.login.resp.SystemCurrentUserResp;
 import io.xiaoyu.auth.modular.login.service.SystemUserService;
 import io.xiaoyu.common.exception.CommonException;
 import io.xiaoyu.common.util.CaptchaCodeImage;
+import io.xiaoyu.common.util.CommonUrlUtil;
 import io.xiaoyu.common.yaims.AmisFactory;
-import io.xiaoyu.common.yaims.Array;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.Map;
 
 @Service
 public class SystemUsersServiceImpl extends ServiceImpl<AdminUsersMapper, AdminUsersEntity> implements SystemUserService{
@@ -27,6 +26,9 @@ public class SystemUsersServiceImpl extends ServiceImpl<AdminUsersMapper, AdminU
 
     @Resource
     private AdminUsersMapper adminUsersMapper;
+
+    @Resource
+    private CommonUrlUtil commonUrlUtil;
 
     @Override
     public String doLogin(AuthAccountPasswordLoginParam authAccountPasswordLoginParam) {
@@ -81,15 +83,20 @@ public class SystemUsersServiceImpl extends ServiceImpl<AdminUsersMapper, AdminU
     @Override
     public SystemCurrentUserResp getCurrentUser() {
         AdminUsersEntity loginUser = (AdminUsersEntity)StpUtil.getTokenSession().get("loginUser");
-        SystemCurrentUserResp systemCurrentUserResp = BeanUtil.copyProperties(loginUser, SystemCurrentUserResp.class);
+        SystemCurrentUserResp systemCurrentUserResp = new SystemCurrentUserResp();
+        systemCurrentUserResp.setName(loginUser.getUsername());
+//        System.err.println(loginUser.getAvatar());
+        systemCurrentUserResp.setAvatar(commonUrlUtil.get(loginUser.getAvatar()));
+
         Object menu = AmisFactory.DropdownButton()
+                .className("h-full w-full")
                 .hideCaret(true)
+                .set("icon","http://demo.owladmin.com/admin/default-avatar.png")
+                .label("admin")
+                .menuClassName("min-w-0 p-2")
                 .trigger("hover")
-                .label(systemCurrentUserResp.getName())
-                .align("right")
-                .btnClassName("navbar-user")
-                .menuClassName("min-w-0 px-2")
-                .set("icon",systemCurrentUserResp.getAvatar())
+                .type("dropdown-button")
+                .btnClassName("navbar-user w-full")
                 .buttons(new Object[]{
                    AmisFactory
                            .VanillaAction()
@@ -104,6 +111,9 @@ public class SystemUsersServiceImpl extends ServiceImpl<AdminUsersMapper, AdminU
                            .label("退出登录")
                            .onClick("window.$owl.logout()").render()
                 }).render();
+
+
+
         systemCurrentUserResp.setMenus(menu);
         return systemCurrentUserResp;
     }

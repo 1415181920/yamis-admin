@@ -2,6 +2,8 @@ package io.xiaoyu.common.util;
 
 import cn.hutool.captcha.CaptchaUtil;
 import cn.hutool.captcha.LineCaptcha;
+import cn.hutool.captcha.ShearCaptcha;
+import cn.hutool.captcha.generator.RandomGenerator;
 import cn.hutool.crypto.digest.DigestUtil;
 
 /**
@@ -25,9 +27,11 @@ public class CaptchaCodeImage {
     }
 
     private void generateCode() {
-        LineCaptcha lineCaptcha = CaptchaUtil.createLineCaptcha(width, height);
-        this.captcha_img = lineCaptcha.getImageBase64();
-        this.sys_captcha = lineCaptcha.getCode();
+        RandomGenerator randomGenerator = new RandomGenerator("0123456789", 4);
+        ShearCaptcha shearCaptcha = CaptchaUtil.createShearCaptcha(width, height);
+        shearCaptcha.setGenerator(randomGenerator);
+        this.captcha_img = shearCaptcha.getImageBase64();
+        this.sys_captcha = shearCaptcha.getCode();
     }
 
     public String getCaptcha_img() {

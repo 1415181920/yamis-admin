@@ -3,12 +3,13 @@ package io.xiaoyu.sys.modular.system.controller.admin.view;
 //视图层控制器
 
 import io.xiaoyu.common.resp.CommonAdminResp;
+import io.xiaoyu.common.util.CommonUrlUtil;
 import io.xiaoyu.common.yaims.AmisFactory;
-import io.xiaoyu.common.yaims.Card;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -22,6 +23,9 @@ public class DashboardViewController {
 
     @Value("${website.app_name}")
     private String app_name;
+
+    @Resource
+    private CommonUrlUtil commonUrlUtil;
 
     @GetMapping("/admin-api/dashboard")
     public CommonAdminResp<Map<Object,Object>> getDashboard() {
@@ -138,7 +142,7 @@ public class DashboardViewController {
                 AmisFactory.Wrapper().className("h-full").body(
                   AmisFactory.Flex().className("h-full").direction("column").justify("center").alignItems("center").items(
                     Arrays.asList(
-                      AmisFactory.Image().src(this.logo).render(),
+                      AmisFactory.Image().src(commonUrlUtil.get(logo)).render(),
                       AmisFactory.Wrapper().className("text-3xl mt-9").body(this.app_name).render(),
                       AmisFactory.Flex().className("w-64 mt-5").justify("space-around").items(
                          Arrays.asList(
@@ -148,10 +152,10 @@ public class DashboardViewController {
                             .blank(true)
                             .actionType("url")
                             .blank(true)
-                            .link("https://github.com/slowlyo/owl-admin").render(),
+                            .link("https://github.com/1415181920/yamis-admin").render(),
                            AmisFactory.Action()
                             .level("link")
-                            .label("OwlAdmin 文档")
+                            .label("YamisAdmin 文档")
                             .blank(true)
                             .actionType("url")
                             .link("http://admin-demo.slowlyo.top/doc").render(),
