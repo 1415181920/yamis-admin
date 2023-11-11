@@ -45,7 +45,7 @@
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid-spring-boot-starter</artifactId>
-			<version>1.1.13</version>
+			<version>1.1.24</version>
 		</dependency>
 
 
@@ -60,8 +60,14 @@
 			<artifactId>sa-token-redis-jackson</artifactId>
 			<version>1.36.0</version>
 		</dependency>
-
 	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>aliyunmaven</id>
+			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+		</repository>
+	</repositories>
 
 	<build>
 		<pluginManagement>

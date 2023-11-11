@@ -1,6 +1,8 @@
 package io.xiaoyu.core.handler;
 
+import io.xiaoyu.common.exception.CommonException;
 import io.xiaoyu.common.pojo.CommonResult;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -23,6 +25,15 @@ public class GlobalExceptionHandler {
     @ResponseBody
     @ExceptionHandler
     public CommonResult<String> handleException(Exception e) {
-        return CommonResult.error(e.getMessage());
+
+        //打印完整的错误信息
+        if (e instanceof CommonException) {
+            System.out.println("BizException" + e.getMessage());
+            return CommonResult.error(e.getMessage());
+        } else {
+            e.printStackTrace();
+            return CommonResult.error("服务器异常");
+        }
+
     }
 }

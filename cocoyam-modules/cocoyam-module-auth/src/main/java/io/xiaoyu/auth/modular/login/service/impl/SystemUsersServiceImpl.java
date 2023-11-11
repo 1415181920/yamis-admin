@@ -65,7 +65,9 @@ public class SystemUsersServiceImpl extends ServiceImpl<AdminUsersMapper, AdminU
 
     @Override
     public AdminUsersEntity checkPassword(AuthAccountPasswordLoginParam authAccountPassword) {
+        System.out.println(authAccountPassword.getPassword());
         String password = DigestUtil.md5Hex(authAccountPassword.getPassword());
+        System.out.println(password);
         return this.getOne(new LambdaQueryWrapper<AdminUsersEntity>()
                 .eq(AdminUsersEntity::getUsername, authAccountPassword.getUsername())
                 .eq(AdminUsersEntity::getPassword,password));
