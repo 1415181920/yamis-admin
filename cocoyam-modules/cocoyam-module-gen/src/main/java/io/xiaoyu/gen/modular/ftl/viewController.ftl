@@ -1,7 +1,7 @@
 package io.xiaoyu.${module}.modular.${childModule}.controller.admin.view;
 
 
-import io.xiaoyu.common.basic.controller.AdminBaseController;
+import io.xiaoyu.common.basic.controller.AdminBaseViewController;
 import io.xiaoyu.common.resp.CommonAdminResp;
 import io.xiaoyu.common.yaims.AmisFactory;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,29 +14,53 @@ import java.util.HashMap;
  */
 @RestController
 @RequestMapping("/admin-api/${module}/${childModule}/${do_main}")
-public class ${Domain}ViewController extends AdminBaseController{
+public class ${Domain}ViewController extends AdminBaseViewController{
 
+    /*列表视图*/
     @GetMapping("/list-view")
     public CommonAdminResp<HashMap<Object, Object>> listView() {
 
         HashMap<Object, Object> page = AmisFactory.Page().body(new Object[]{
             AmisFactory.
-                    CRUDTable().
-                    api("/${module}/${childModule}/${do_main}/query-list").
-                    syncLocation(false).
-                    columns(new Object[]{
-                        <#list fieldList as field>
-                            <#if field.comment != "">
-                                AmisFactory.TableColumn().name("${field.name}").label("${field.comment}").render(),
-                            <#else>
-                                AmisFactory.TableColumn().name("${field.name}").label("${field.name}").render(),
-                            </#if>
-                        </#list>
-                    }).render(),
+                CRUDTable().
+                headerToolbar(new Object[]{DialogButton(formView(),"新增","fa fa-add")}).
+                api("/${module}/${childModule}/${do_main}/query-list").
+                syncLocation(false).
+                columns(new Object[]{
+            <#list fieldList as field>
+                <#if field.comment != "">
+                    AmisFactory.TableColumn().name("${field.name}").label("${field.comment}").render(),
+                <#else>
+                    AmisFactory.TableColumn().name("${field.name}").label("${field.name}").render(),
+                </#if>
+            </#list>
+                }).render(),
         }).render();
 
         return new CommonAdminResp<>(page);
     }
+
+
+    /*新增视图*/
+    public HashMap<Object, Object> formView() {
+
+        return baseForm("/${module}/${childModule}/${do_main}/add","新增").body(
+            new Object[]{
+        <#list fieldList as field>
+        <#if field.name != "created_at" && field.name != "updated_at" && field.name!= "deleted_at" && field.name!= "id" >
+            <#if field.comment != "">
+                AmisFactory.TextControl().name("${field.name}").label("${field.comment}").render(),
+            </#if>
+            <#if field.comment == "">
+                AmisFactory.TextControl().name("${field.name}").label("${field.name}").render(),
+            </#if>
+        </#if>
+        </#list>
+            }
+        ).render();
+
+    }
+
 
 }
 

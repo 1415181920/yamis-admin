@@ -6,14 +6,14 @@ import io.xiaoyu.${module}.modular.${childModule}.service.${Domain}Service;
 import io.xiaoyu.common.resp.CommonAdminResp;
 import io.xiaoyu.common.resp.PageResp;
 import org.springframework.web.bind.annotation.*;
-import io.xiaoyu.common.basic.controller.AdminBaseController;
+import io.xiaoyu.common.basic.controller.AdminBaseViewController;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/admin-api/${module}/${childModule}/${do_main}")
-public class ${Domain}AdminController extends AdminBaseController{
+public class ${Domain}AdminController extends AdminBaseViewController{
 
     @Resource
     private ${Domain}Service ${domain}Service;
