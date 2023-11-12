@@ -33,7 +33,7 @@ public class SystemUsersAdminController {
     @GetMapping("/admin-api/logout")
     public CommonAdminResp<Object> doLogout(){
         StpUtil.logout();
-        return  CommonAdminResp.get(200,"登出成功",null);
+        return  CommonAdminResp.ok("登出成功",null);
     }
 
 
@@ -42,7 +42,7 @@ public class SystemUsersAdminController {
      */
     @GetMapping("/admin-api/current-user")
     public CommonAdminResp<SystemCurrentUserResp> getCurrentUser(){
-        return  CommonAdminResp.get(200,"获取用户信息成功", systemUsersService.getCurrentUser());
+        return  CommonAdminResp.ok("获取用户信息成功", systemUsersService.getCurrentUser());
     }
 
 
