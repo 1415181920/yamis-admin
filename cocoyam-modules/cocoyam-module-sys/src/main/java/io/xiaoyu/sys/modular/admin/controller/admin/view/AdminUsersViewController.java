@@ -4,10 +4,14 @@ package io.xiaoyu.sys.modular.admin.controller.admin.view;
 import io.xiaoyu.common.basic.controller.AdminBaseController;
 import io.xiaoyu.common.resp.CommonAdminResp;
 import io.xiaoyu.common.yaims.AmisFactory;
+import io.xiaoyu.common.yaims.TableColumn;
+import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,19 +31,21 @@ public class AdminUsersViewController extends AdminBaseController{
                     api("/admin-users/admin/query-list").
                     syncLocation(false).
                     columns(new Object[]{
-                            AmisFactory.TableColumn().name("id").label("id"),
-                            AmisFactory.TableColumn().name("username").label("username"),
-                            AmisFactory.TableColumn().name("password").label("password").toArray(),
-                            AmisFactory.TableColumn().name("name").label("name").toArray(),
-                            AmisFactory.TableColumn().name("avatar").label("avatar").toArray(),
-                            AmisFactory.TableColumn().name("remember_token").label("remember_token").toArray(),
-                            AmisFactory.TableColumn().name("created_at").label("created_at").toArray(),
-                            AmisFactory.TableColumn().name("updated_at").label("updated_at").toArray(),
-                    }),
-        }).toArray();
-
+                            AmisFactory.TableColumn().name("id").label("id").render(),
+                            AmisFactory.TableColumn().name("username").label("username").render(),
+                            AmisFactory.TableColumn().name("password").label("password").render(),
+                            AmisFactory.TableColumn().name("name").label("name").render(),
+                            AmisFactory.TableColumn().name("avatar").label("avatar").render(),
+                            AmisFactory.TableColumn().name("remember_token").label("remember_token").render(),
+                            AmisFactory.TableColumn().name("created_at").label("created_at").render(),
+                            AmisFactory.TableColumn().name("updated_at").label("updated_at").render(),
+                    }).render(),
+        }).render();
         return new CommonAdminResp<>(page);
     }
+
+
+
 
 }
 

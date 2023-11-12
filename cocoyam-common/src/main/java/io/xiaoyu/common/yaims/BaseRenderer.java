@@ -18,10 +18,6 @@ public abstract  class BaseRenderer {
         return amisSchema.get(name);
     }
 
-//    public Map<String, Object> getAmisSchema() {
-//        return amisSchema;
-//    }
-
     //渲染
     public HashMap<Object, Object> toArray(){
         return amisSchema;
