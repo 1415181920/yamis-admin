@@ -67,7 +67,6 @@ public class GeneratorController {
         param.put("childModule", childModule);
         System.out.println("组装参数：" + param);
 
-//        Console.log(fieldList);
 
         gen(Domain, param, "entity", "entity");
         gen(Domain, param, "controller/admin", "adminController");

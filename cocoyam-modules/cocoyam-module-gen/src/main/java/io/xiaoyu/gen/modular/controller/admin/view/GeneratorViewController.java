@@ -23,11 +23,11 @@ public class GeneratorViewController {
                             id("form").
                             body(new Object[]{
                             AmisFactory.TextControl().name("module").
-                                    label("主模块名").required(true).placeholder("请输入主模块名").render(),
+                                    label("主模块名").value("sys").required(true).placeholder("请输入主模块名").render(),
                             AmisFactory.TextControl().name("childModule").
-                                    label("子模块名").required(true).placeholder("请输入子模块名").render(),
+                                    label("子模块名").value("admin").required(true).placeholder("请输入子模块名").render(),
                             AmisFactory.TextControl().name("tableName").
-                                    label("表名").required(true).placeholder("请输入表名").render(),
+                                    label("表名").value("admin_roles").required(true).placeholder("请输入表名").render(),
                             AmisFactory.TextControl().name("serverPath").
                                     label("生成路径(不建议修改)").required(true).placeholder("请输入生成路径")
                                     .value("cocoyam-modules/cocoyam-module-[module]/src/main/java/io/xiaoyu/[module]/modular/[childModule]/")

@@ -22,11 +22,15 @@ public class ${Domain}ViewController extends AdminBaseController{
         HashMap<Object, Object> page = AmisFactory.Page().body(new Object[]{
             AmisFactory.
                     CRUDTable().
-                    api("/admin-api/${module}/${childModule}/${do_main}/query-list").
+                    api("/${module}/${childModule}/${do_main}/query-list").
                     syncLocation(false).
                     columns(new Object[]{
                         <#list fieldList as field>
-                            AmisFactory.TableColumn().name("${field.name}").label("${field.name}").render(),
+                            <#if field.comment != "">
+                                AmisFactory.TableColumn().name("${field.name}").label("${field.comment}").render(),
+                            <#else>
+                                AmisFactory.TableColumn().name("${field.name}").label("${field.name}").render(),
+                            </#if>
                         </#list>
                     }).render(),
         }).render();
