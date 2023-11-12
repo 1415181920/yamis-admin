@@ -1,7 +1,7 @@
 package io.xiaoyu.sys.modular.menu.controller.admin.view;
 
 
-import io.xiaoyu.common.basic.controller.AdminBaseController;
+import io.xiaoyu.common.basic.controller.AdminBaseViewController;
 import io.xiaoyu.common.resp.CommonAdminResp;
 import io.xiaoyu.common.yaims.AmisFactory;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,14 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 视图层控制器
  */
 @RestController
 @RequestMapping("/admin-api/admin-menus/menu")
-public class AdminMenusViewController extends AdminBaseController{
+public class AdminMenusViewViewController extends AdminBaseViewController {
 
     @GetMapping("/list-view")
     public CommonAdminResp<HashMap<Object, Object>> listView() {
