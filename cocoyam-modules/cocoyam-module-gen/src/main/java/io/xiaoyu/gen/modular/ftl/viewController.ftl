@@ -23,7 +23,9 @@ public class ${Domain}ViewController extends AdminBaseViewController{
         HashMap<Object, Object> page = AmisFactory.Page().body(new Object[]{
             AmisFactory.
                 CRUDTable().
-                headerToolbar(new Object[]{DialogButton(formView(),"新增","fa fa-add")}).
+                headerToolbar(new Object[]{
+                        createButton(this)
+                }).
                 api("/${module}/${childModule}/${do_main}/query-list").
                 syncLocation(false).
                 columns(new Object[]{
@@ -34,6 +36,9 @@ public class ${Domain}ViewController extends AdminBaseViewController{
                     AmisFactory.TableColumn().name("${field.name}").label("${field.name}").render(),
                 </#if>
             </#list>
+                    AmisFactory.Operation().label("操作").buttons(new Object[]{
+                        rowEditButton(this),
+                    }).render()
                 }).render(),
         }).render();
 
