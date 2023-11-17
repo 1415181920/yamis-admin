@@ -1,27 +1,27 @@
 package io.xiaoyu.common.shared;
 
 public class YamisActionContext {
-    private static final ThreadLocal<Boolean> YamisActionCreate = new ThreadLocal<>();
-    private static final ThreadLocal<Boolean> YamisActionEdit = new ThreadLocal<>();
+    private static final ThreadLocal<Boolean> yamisActionCreate = new ThreadLocal<>();
+    private static final ThreadLocal<Boolean> yamisActionEdit = new ThreadLocal<>();
 
     public static void setYamisActionCreate() {
-        YamisActionCreate.set(true);
+        yamisActionCreate.set(true);
     }
 
     public static void setYamisActionEdit() {
-        YamisActionEdit.set(true);
+        yamisActionEdit.set(true);
     }
 
     public static Boolean isYamisActionCreate() {
-        return (YamisActionCreate.get() != null) ? YamisActionCreate.get() : false;
+        return (yamisActionCreate.get() != null) ? yamisActionCreate.get() : false;
     }
 
     public static Boolean isYamisActionEdit() {
-        return (YamisActionEdit.get() != null) ? YamisActionEdit.get() : false;
+        return (yamisActionEdit.get() != null) ? yamisActionEdit.get() : false;
     }
 
     public static void clear() {
-        YamisActionCreate.remove();
-        YamisActionEdit.remove();
+        yamisActionCreate.remove();
+        yamisActionEdit.remove();
     }
 }
