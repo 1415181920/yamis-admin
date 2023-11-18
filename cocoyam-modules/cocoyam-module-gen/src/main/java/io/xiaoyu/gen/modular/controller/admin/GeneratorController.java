@@ -9,6 +9,7 @@ import io.xiaoyu.gen.modular.util.DbUtil;
 import io.xiaoyu.gen.modular.util.Field;
 import io.xiaoyu.gen.modular.util.FreemarkerUtil;
 import freemarker.template.TemplateException;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
@@ -19,10 +20,14 @@ import java.util.*;
 public class GeneratorController {
     static boolean readOnly = true;
 
+    @Value("${spring.datasource.url}")
+    private static final String url = null;//数据库配置
 
-    private static final String url="jdbc:mysql://106.52.14.176:3306/yamis";//数据库配置
-    private static final String user="yamis";
-    private static final String  password="yamis123456";
+    @Value("${spring.datasource.username}")
+    private static final String user = null;
+
+    @Value("${spring.datasource.password}")
+    private static final String  password= null;
 
     static String serverPath = "";
     static String module = "";//主模块名
@@ -71,8 +76,12 @@ public class GeneratorController {
         gen(Domain, param, "entity", "entity");
         gen(Domain, param, "controller/admin", "adminController");
         gen(Domain, param, "controller/admin/view", "viewController");
-        gen(Domain, param, "req", "saveReq");
+
+        gen(Domain, param, "req", "addReq");
+        gen(Domain, param, "req", "editReq");
         gen(Domain, param, "req", "queryReq");
+        gen(Domain, param, "req", "detailReq");
+
         gen(Domain, param, "resp", "queryResp");
         gen(Domain, param, "service/impl", "serviceImpl");
         gen(Domain, param, "service", "service");

@@ -14,7 +14,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.NotBlank;
 
-public class ${Domain}SaveReq {
+public class ${Domain}EditReq {
 
     <#list fieldList as field>
     /**
