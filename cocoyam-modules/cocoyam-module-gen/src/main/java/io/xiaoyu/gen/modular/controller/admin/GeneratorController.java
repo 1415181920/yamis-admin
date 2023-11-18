@@ -9,9 +9,11 @@ import io.xiaoyu.gen.modular.util.DbUtil;
 import io.xiaoyu.gen.modular.util.Field;
 import io.xiaoyu.gen.modular.util.FreemarkerUtil;
 import freemarker.template.TemplateException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import javax.sql.DataSource;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
@@ -21,13 +23,16 @@ public class GeneratorController {
     static boolean readOnly = true;
 
     @Value("${spring.datasource.url}")
-    private static final String url = null;//数据库配置
+    private  String url = null;//数据库配置
 
     @Value("${spring.datasource.username}")
-    private static final String user = null;
+    private  String user = null;
 
     @Value("${spring.datasource.password}")
-    private static final String  password= null;
+    private  String  password= null;
+
+    @Autowired
+    private DataSource dataSource;
 
     static String serverPath = "";
     static String module = "";//主模块名
@@ -37,6 +42,8 @@ public class GeneratorController {
 
     @PostMapping("/admin-api/gen-code")
     public CommonAdminResp<String> genCode(@RequestBody GenCodeReq genCodeReq) throws Exception {
+
+        System.err.println(dataSource.toString());
 
         serverPath = genCodeReq.getServerPath();
         module = genCodeReq.getModule();
