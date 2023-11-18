@@ -44,4 +44,4 @@ yarn-error.log*
 .stylelintcache
 
 *.iml
-*.xml
+rebel.xml
