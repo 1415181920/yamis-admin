@@ -8,3 +8,5 @@
 /cocoyam-modules/cocoyam-module-gen/target
 /cocoyam-common/target
 /cocoyam-modules/cocoyam-module-sys/target
+rebel.xml
+*.iml
