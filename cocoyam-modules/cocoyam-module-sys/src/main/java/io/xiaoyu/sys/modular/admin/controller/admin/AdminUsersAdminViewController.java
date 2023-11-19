@@ -21,7 +21,7 @@ public class AdminUsersAdminViewController extends AdminBaseViewController {
     @GetMapping("/query-list")
     public CommonAdminResp<PageResp<AdminUsersQueryResp>> queryList(@Valid AdminUsersQueryReq req) {
         PageResp<AdminUsersQueryResp> list = adminUsersService.queryList(req);
-        return new CommonAdminResp<>(list);
+        return  CommonAdminResp.ok(list);
     }
 
 }

@@ -36,7 +36,7 @@ public class AdminUsersViewViewController extends AdminBaseViewController {
                             AmisFactory.TableColumn().name("updated_at").label("updated_at").render(),
                     }).render(),
         }).render();
-        return new CommonAdminResp<>(page);
+        return CommonAdminResp.ok(page);
     }
 
 

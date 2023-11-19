@@ -26,7 +26,7 @@ public class AdminMenusAdminViewController extends AdminBaseViewController {
     @GetMapping("/query-list")
     public CommonAdminResp<PageResp<AdminMenusQueryResp>> queryList(@Valid AdminMenusQueryReq req) {
         PageResp<AdminMenusQueryResp> list = adminMenusService.queryList(req);
-        return new CommonAdminResp<>(list);
+        return  CommonAdminResp.ok(list);
     }
 
 }

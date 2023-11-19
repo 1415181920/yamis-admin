@@ -94,7 +94,8 @@ public class GeneratorController {
         gen(Domain, param, "service", "service");
         gen(Domain, param, "mapper", "mapper");
         genXml(Domain, param, "mapper/mapping", "mapping");
-        return CommonAdminResp.ok("成功！");
+
+        return CommonAdminResp.ok();
     }
 
     private static void gen(String Domain, Map<String, Object> param, String packageName, String target) throws IOException, TemplateException {

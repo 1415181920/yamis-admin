@@ -42,7 +42,7 @@ public class ${Domain}ViewController extends AdminBaseViewController{
                 }).render(),
         }).render();
 
-        return new CommonAdminResp<>(page);
+        return CommonAdminResp.ok(page);
     }
 
 

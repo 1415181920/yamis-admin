@@ -41,7 +41,7 @@ public class AdminMenusViewViewController extends AdminBaseViewController {
                     }).render(),
         }).render();
 
-        return new CommonAdminResp<>(page);
+        return  CommonAdminResp.ok(page);
     }
 
 }

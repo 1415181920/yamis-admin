@@ -60,7 +60,7 @@ public class GeneratorViewController {
         ).render();
 
 
-        return new CommonAdminResp<>(render);
+        return CommonAdminResp.ok(render);
     }
 
 

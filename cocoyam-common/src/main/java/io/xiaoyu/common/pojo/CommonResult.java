@@ -14,6 +14,8 @@ public class CommonResult<T> implements Serializable {
     private String msg;
 
 
+    private int doNotDisplayToast = 0;
+
     private T data;
 
     public CommonResult() {
@@ -88,9 +90,7 @@ public class CommonResult<T> implements Serializable {
     public static <T> CommonResult<T> ok(String msg) {
         return new CommonResult<>(CODE_SUCCESS, msg, null);
     }
-//    public static <T> CommonResult<T> ok(T data, String msg) {
-//        return new CommonResult<>(CODE_SUCCESS, msg, data);
-//    }
+
     public static <T> CommonResult<T> code(int code) {
         return new CommonResult<>(code, null, null);
     }
@@ -111,27 +111,14 @@ public class CommonResult<T> implements Serializable {
         return new CommonResult<>(code, msg, data);
     }
 
-    /*
-     * toString()
-     */
+
     @Override
     public String toString() {
-        return "{"
-                + "\"code\": " + this.getCode()
-                + ", \"msg\": \"" + this.getMsg() + "\""
-                + ", \"data\": \"" + this.getData() + "\""
-                + "}";
+        return "CommonResult{" +
+                "code=" + code +
+                ", msg='" + msg + '\'' +
+                ", doNotDisplayToast=" + doNotDisplayToast +
+                ", data=" + data +
+                '}';
     }
-
-    /**
-     * 响应状态码集合
-     *
-     * @author xuyuxiang
-     * @date 2022/7/25 13:36
-     **/
-//    public static List<ResponseMessage> responseList() {
-//        return Arrays.stream(CommonExceptionEnum.values()).map(commonExceptionEnum -> new ResponseMessageBuilder()
-//                .code(commonExceptionEnum.getCode()).message(commonExceptionEnum.getMessage()).build())
-//                .collect(Collectors.toList());
-//    }
 }
