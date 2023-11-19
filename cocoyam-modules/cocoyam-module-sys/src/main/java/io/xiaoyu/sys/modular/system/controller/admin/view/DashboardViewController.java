@@ -49,7 +49,7 @@ public class DashboardViewController {
             }
         ).render();
 
-        return CommonAdminResp.ok("获取成功", page);
+        return CommonAdminResp.success("获取成功", page);
 
     }
 

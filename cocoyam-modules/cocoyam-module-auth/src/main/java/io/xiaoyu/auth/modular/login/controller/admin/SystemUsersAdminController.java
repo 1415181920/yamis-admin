@@ -23,7 +23,7 @@ public class SystemUsersAdminController {
         String token = systemUsersService.doLogin(authAccountPasswordLoginParam);
         HashMap<String, String> data = new HashMap<>();
         data.put("token",token);
-        return  CommonAdminResp.ok("登录成功",data);
+        return  CommonAdminResp.success("登录成功",data);
     }
 
 
@@ -33,7 +33,7 @@ public class SystemUsersAdminController {
     @GetMapping("/admin-api/logout")
     public CommonAdminResp<Object> doLogout(){
         StpUtil.logout();
-        return  CommonAdminResp.ok("登出成功",null);
+        return  CommonAdminResp.success("登出成功",null);
     }
 
 
@@ -42,7 +42,7 @@ public class SystemUsersAdminController {
      */
     @GetMapping("/admin-api/current-user")
     public CommonAdminResp<SystemCurrentUserResp> getCurrentUser(){
-        return  CommonAdminResp.ok("获取用户信息成功", systemUsersService.getCurrentUser());
+        return  CommonAdminResp.success("获取用户信息成功", systemUsersService.getCurrentUser());
     }
 
 

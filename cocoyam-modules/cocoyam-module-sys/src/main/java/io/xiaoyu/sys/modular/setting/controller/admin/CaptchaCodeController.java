@@ -22,7 +22,7 @@ public class CaptchaCodeController {
         CaptchaCodeImage captchaCodeImage = new CaptchaCodeImage(200, 50);
         result.put("sys_captcha",captchaCodeImage.getSys_captcha());
         result.put("captcha_img","data:image/png;base64,"+captchaCodeImage.getCaptcha_img());
-        return CommonAdminResp.ok("获取成功",result);
+        return CommonAdminResp.success("获取成功",result);
     }
 
 }

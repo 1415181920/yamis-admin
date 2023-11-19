@@ -7,49 +7,66 @@ import java.io.Serializable;
 @Data
 public class CommonAdminResp<T> implements Serializable {
     private static final long serialVersionUID = 1L;
-    public static final int STATUS_SUCCESS = 0;
-    public static final int STATUS_ERROR = 1;
 
+    public enum Status {
+        SUCCESS,
+        ERROR
+    }
 
-    private Integer status;
+    public enum DisplayToast {
+        SHOW,
+        NOT_SHOW
+    }
 
-    private String msg;
-
+    private Status status;
+    private String message;
     private T data;
+    private DisplayToast displayToast;
 
-    private Integer doNotDisplayToast;
-
-    public CommonAdminResp(int status, String msg, T data, int doNotDisplayToast) {
+    public CommonAdminResp(Status status, String message, T data, DisplayToast displayToast) {
         this.status = status;
-        this.msg = msg;
+        this.message = message;
         this.data = data;
-        this.doNotDisplayToast = doNotDisplayToast;
+        this.displayToast = displayToast;
     }
 
-    // 构建成功
-    public static <T> CommonAdminResp<T> ok() {
-        return new CommonAdminResp<>(STATUS_SUCCESS, "操作成功", null,0);
-    }
-    public static <T> CommonAdminResp<T> ok(String msg) {
-        return new CommonAdminResp<>(STATUS_SUCCESS, msg, null,0);
+    public static <T> CommonAdminResp<T> success() {
+        return new CommonAdminResp<>(Status.SUCCESS, "操作成功", null, DisplayToast.NOT_SHOW);
     }
 
-    public static <T> CommonAdminResp<T> ok(T data) {
-        return new CommonAdminResp<>(STATUS_SUCCESS, "操作成功", data,0);
+    public static <T> CommonAdminResp<T> success(String message) {
+        return new CommonAdminResp<>(Status.SUCCESS, message, null, DisplayToast.NOT_SHOW);
     }
 
-    public static <T> CommonAdminResp<T> ok(String msg,T data) {
-        return new CommonAdminResp<>(STATUS_SUCCESS, msg, data,0);
+    public static <T> CommonAdminResp<T> success(T data) {
+        return new CommonAdminResp<>(Status.SUCCESS, "操作成功", data, DisplayToast.NOT_SHOW);
     }
 
+    public static <T> CommonAdminResp<T> success(String message, T data) {
+        return new CommonAdminResp<>(Status.SUCCESS, message, data, DisplayToast.NOT_SHOW);
+    }
 
-    // 构建失败
+    public static <T> CommonAdminResp<T> successWithToast() {
+        return new CommonAdminResp<>(Status.SUCCESS, "操作成功", null, DisplayToast.SHOW);
+    }
+
+    public static <T> CommonAdminResp<T> successWithToast(String message) {
+        return new CommonAdminResp<>(Status.SUCCESS, message, null, DisplayToast.SHOW);
+    }
+
+    public static <T> CommonAdminResp<T> successWithToast(T data) {
+        return new CommonAdminResp<>(Status.SUCCESS, "操作成功", data, DisplayToast.SHOW);
+    }
+
+    public static <T> CommonAdminResp<T> successWithToast(String message, T data) {
+        return new CommonAdminResp<>(Status.SUCCESS, message, data, DisplayToast.SHOW);
+    }
+
     public static <T> CommonAdminResp<T> error() {
-        return new CommonAdminResp<>(STATUS_ERROR, "服务器异常", null,1);
+        return new CommonAdminResp<>(Status.ERROR, "服务器异常", null, DisplayToast.SHOW);
     }
 
-    public static <T> CommonAdminResp<T> error(String msg) {
-        return new CommonAdminResp<>(STATUS_ERROR, msg, null,1);
+    public static <T> CommonAdminResp<T> error(String message) {
+        return new CommonAdminResp<>(Status.ERROR, message, null, DisplayToast.SHOW);
     }
-
 }

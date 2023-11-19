@@ -41,8 +41,11 @@ public class GeneratorController {
 
 
     @PostMapping("/admin-api/gen-code")
-    public CommonAdminResp<String> genCode(@RequestBody GenCodeReq genCodeReq) throws Exception {
+    public CommonAdminResp<HashMap<String,String>> genCode(@RequestBody GenCodeReq genCodeReq) throws Exception {
 
+        if (true){
+           return CommonAdminResp.success("保存成功");
+        }
         System.err.println(dataSource.toString());
 
         serverPath = genCodeReq.getServerPath();
@@ -95,7 +98,7 @@ public class GeneratorController {
         gen(Domain, param, "mapper", "mapper");
         genXml(Domain, param, "mapper/mapping", "mapping");
 
-        return CommonAdminResp.ok();
+        return CommonAdminResp.success();
     }
 
     private static void gen(String Domain, Map<String, Object> param, String packageName, String target) throws IOException, TemplateException {

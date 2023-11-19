@@ -21,7 +21,7 @@ public class ${Domain}AdminController extends AdminBaseViewController{
     @GetMapping("/query-list")
     public CommonAdminResp<PageResp<${Domain}QueryResp>> queryList(@Valid ${Domain}QueryReq req) {
         PageResp<${Domain}QueryResp> list = ${domain}Service.queryList(req);
-        return CommonAdminResp.ok(list);
+        return CommonAdminResp.success(list);
     }
 
 }

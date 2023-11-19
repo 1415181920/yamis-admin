@@ -22,7 +22,7 @@ public class SysMenusAdminViewController extends AdminBaseViewController {
     public CommonAdminResp<List<Map<String, Object>>> getMenus(){
         Console.log("get menus");
         List<Map<String, Object>> menus = adminMenusService.getMenus();
-        return CommonAdminResp.ok("获取菜单成功",menus);
+        return CommonAdminResp.success("获取菜单成功",menus);
     }
 
 

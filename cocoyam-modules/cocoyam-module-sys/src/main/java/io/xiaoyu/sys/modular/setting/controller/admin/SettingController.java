@@ -22,7 +22,7 @@ public class SettingController {
      */
     @GetMapping("/admin-api/_settings")
     public CommonAdminResp<AdminSettingResponse> getSetting() {
-       return CommonAdminResp.ok("获取成功",adminSettingService.getSetting());
+       return CommonAdminResp.success("获取成功",adminSettingService.getSetting());
     }
 
 

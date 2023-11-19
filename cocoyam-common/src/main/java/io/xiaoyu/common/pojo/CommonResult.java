@@ -7,6 +7,8 @@ import java.io.Serializable;
 
 
 @Data
+/** 已废弃 */
+@Deprecated
 public class CommonResult<T> implements Serializable {
     private static final long serialVersionUID = 1L;
     public static final int CODE_SUCCESS = 200;
@@ -19,7 +21,7 @@ public class CommonResult<T> implements Serializable {
     private String msg;
 
 
-    private int doNotDisplayToast = 0;
+    private int doNotDisplayToast;
 
     private T data;
 
@@ -28,7 +30,7 @@ public class CommonResult<T> implements Serializable {
         this.setCode(code);
         this.setMsg(msg);
         this.setData(data);
-        this.doNotDisplayToast = 0;
+        this.setDoNotDisplayToast(doNotDisplayToast);
     }
 
 
