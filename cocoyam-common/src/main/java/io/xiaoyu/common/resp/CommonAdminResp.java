@@ -9,64 +9,92 @@ public class CommonAdminResp<T> implements Serializable {
     private static final long serialVersionUID = 1L;
 
     public enum Status {
-        SUCCESS,
-        ERROR
+        SUCCESS(0),
+        ERROR(1);
+
+        private final int value;
+
+        Status(int value) {
+            this.value = value;
+        }
+
+        public int getValue() {
+            return value;
+        }
     }
 
     public enum DisplayToast {
-        SHOW,
-        NOT_SHOW
+        SHOW(0),
+        NOT_SHOW(1);
+
+        private final int value;
+
+        DisplayToast(int value) {
+            this.value = value;
+        }
+
+        public int getValue() {
+            return value;
+        }
     }
 
-    private Status status;
+    private Integer status;
     private String message;
     private T data;
-    private DisplayToast displayToast;
+    private Integer displayToast;
 
-    public CommonAdminResp(Status status, String message, T data, DisplayToast displayToast) {
+    public CommonAdminResp(Integer status, String message, T data, Integer displayToast) {
         this.status = status;
         this.message = message;
         this.data = data;
         this.displayToast = displayToast;
     }
 
+    public CommonAdminResp(Integer status, String message, Integer displayToast) {
+        this.status = status;
+        this.message = message;
+        this.displayToast = displayToast;
+        this.data = (T) new String[0];
+    }
+
+
     public static <T> CommonAdminResp<T> success() {
-        return new CommonAdminResp<>(Status.SUCCESS, "操作成功", null, DisplayToast.NOT_SHOW);
+        return new CommonAdminResp<>(Status.SUCCESS.getValue(), "操作成功",DisplayToast.NOT_SHOW.getValue());
     }
 
     public static <T> CommonAdminResp<T> success(String message) {
-        return new CommonAdminResp<>(Status.SUCCESS, message, null, DisplayToast.NOT_SHOW);
+        return new CommonAdminResp<>(Status.SUCCESS.getValue(), message,DisplayToast.NOT_SHOW.getValue());
     }
 
     public static <T> CommonAdminResp<T> success(T data) {
-        return new CommonAdminResp<>(Status.SUCCESS, "操作成功", data, DisplayToast.NOT_SHOW);
+        return new CommonAdminResp<>(Status.SUCCESS.getValue(), "操作成功", data,DisplayToast.NOT_SHOW.getValue());
     }
 
     public static <T> CommonAdminResp<T> success(String message, T data) {
-        return new CommonAdminResp<>(Status.SUCCESS, message, data, DisplayToast.NOT_SHOW);
+        return new CommonAdminResp<>(Status.SUCCESS.getValue(), message, data,DisplayToast.NOT_SHOW.getValue());
     }
 
     public static <T> CommonAdminResp<T> successWithToast() {
-        return new CommonAdminResp<>(Status.SUCCESS, "操作成功", null, DisplayToast.SHOW);
+        return new CommonAdminResp<>(Status.SUCCESS.getValue(), "操作成功", null, DisplayToast.SHOW.getValue());
     }
 
     public static <T> CommonAdminResp<T> successWithToast(String message) {
-        return new CommonAdminResp<>(Status.SUCCESS, message, null, DisplayToast.SHOW);
+        return new CommonAdminResp<>(Status.SUCCESS.getValue(), message, null, DisplayToast.SHOW.getValue());
     }
 
     public static <T> CommonAdminResp<T> successWithToast(T data) {
-        return new CommonAdminResp<>(Status.SUCCESS, "操作成功", data, DisplayToast.SHOW);
+        return new CommonAdminResp<>(Status.SUCCESS.getValue(), "操作成功", data, DisplayToast.SHOW.getValue());
     }
 
     public static <T> CommonAdminResp<T> successWithToast(String message, T data) {
-        return new CommonAdminResp<>(Status.SUCCESS, message, data, DisplayToast.SHOW);
+        return new CommonAdminResp<>(Status.SUCCESS.getValue(), message, data, DisplayToast.SHOW.getValue());
     }
 
     public static <T> CommonAdminResp<T> error() {
-        return new CommonAdminResp<>(Status.ERROR, "服务器异常", null, DisplayToast.SHOW);
+        return new CommonAdminResp<>(Status.ERROR.getValue(), "服务器异常", null, DisplayToast.SHOW.getValue());
     }
 
     public static <T> CommonAdminResp<T> error(String message) {
-        return new CommonAdminResp<>(Status.ERROR, message, null, DisplayToast.SHOW);
+        return new CommonAdminResp<>(Status.ERROR.getValue(), message, null, DisplayToast.SHOW.getValue());
     }
 }
