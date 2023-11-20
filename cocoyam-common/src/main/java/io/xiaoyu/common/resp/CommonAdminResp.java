@@ -39,21 +39,21 @@ public class CommonAdminResp<T> implements Serializable {
     }
 
     private Integer status;
-    private String message;
+    private String msg;
     private T data;
-    private Integer displayToast;
+    private Integer doNotDisplayToast;
 
-    public CommonAdminResp(Integer status, String message, T data, Integer displayToast) {
+    public CommonAdminResp(Integer status, String msg, T data, Integer doNotDisplayToast) {
         this.status = status;
-        this.message = message;
+        this.msg = msg;
         this.data = data;
-        this.displayToast = displayToast;
+        this.doNotDisplayToast = doNotDisplayToast;
     }
 
-    public CommonAdminResp(Integer status, String message, Integer displayToast) {
+    public CommonAdminResp(Integer status, String msg, Integer doNotDisplayToast) {
         this.status = status;
-        this.message = message;
-        this.displayToast = displayToast;
+        this.msg = msg;
+        this.doNotDisplayToast = doNotDisplayToast;
         this.data = (T) new String[0];
     }
 
@@ -75,11 +75,11 @@ public class CommonAdminResp<T> implements Serializable {
     }
 
     public static <T> CommonAdminResp<T> successWithToast() {
-        return new CommonAdminResp<>(Status.SUCCESS.getValue(), "操作成功", null, DisplayToast.SHOW.getValue());
+        return new CommonAdminResp<>(Status.SUCCESS.getValue(), "操作成功",  DisplayToast.SHOW.getValue());
     }
 
     public static <T> CommonAdminResp<T> successWithToast(String message) {
-        return new CommonAdminResp<>(Status.SUCCESS.getValue(), message, null, DisplayToast.SHOW.getValue());
+        return new CommonAdminResp<>(Status.SUCCESS.getValue(), message,DisplayToast.SHOW.getValue());
     }
 
     public static <T> CommonAdminResp<T> successWithToast(T data) {
