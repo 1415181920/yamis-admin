@@ -3,8 +3,8 @@ package io.xiaoyu.sys.modular.menu.service.impl;
 import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.xiaoyu.common.basic.service.BaseService;
+import io.xiaoyu.common.req.CommonPageRequest;
 import io.xiaoyu.sys.modular.menu.entity.AdminMenusEntity;
 import io.xiaoyu.sys.modular.menu.mapper.AdminMenusMapper;
 import io.xiaoyu.sys.modular.menu.req.AdminMenusQueryReq;
@@ -14,7 +14,6 @@ import io.xiaoyu.common.resp.PageResp;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 
 @Service
@@ -23,22 +22,11 @@ public class AdminMenusServiceImpl extends BaseService<AdminMenusMapper,AdminMen
     @Resource
     private AdminMenusMapper adminMenusMapper;
 
-    public PageResp<AdminMenusQueryResp> queryList(AdminMenusQueryReq req) {
-
-        Page<AdminMenusEntity> userPage = new Page<>(req.getPage(), req.getPerPage());
-        QueryWrapper<AdminMenusEntity> wrapper = new QueryWrapper<>();
-
-        IPage<AdminMenusEntity> pageList = adminMenusMapper.selectPage(userPage, wrapper);
-        long total = pageList.getTotal();
-        List<AdminMenusEntity> records = pageList.getRecords();
-        List<AdminMenusQueryResp> list = BeanUtil.copyToList(records, AdminMenusQueryResp.class);
-
-        PageResp<AdminMenusQueryResp> pageResp = new PageResp<>();
-        pageResp.setPageNum(req.getPage());
-        pageResp.setPerPage(req.getPerPage());
-        pageResp.setTotal(total);
-        pageResp.setItems(list);
-        return pageResp;
+    public PageResp<AdminMenusEntity> queryList(AdminMenusQueryReq req) {
+        QueryWrapper<AdminMenusEntity> queryWrapper = new QueryWrapper<>();
+        queryWrapper.lambda().orderByDesc(AdminMenusEntity::getId);
+        IPage<AdminMenusEntity> page = this.page(CommonPageRequest.defaultPage(), queryWrapper);
+        return new PageResp<>(page);
     }
 
     public AdminMenusQueryResp queryById(Long id) {
