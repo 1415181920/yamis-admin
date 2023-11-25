@@ -31,9 +31,9 @@ import java.util.List;
 @Slf4j
 public class CommonPageRequest {
 
-    private static final String PAGE_SIZE_PARAM_NAME = "page";
+    private static final String PAGE_SIZE_PARAM_NAME = "perPage";
 
-    private static final String PAGE_PARAM_NAME = "perPage";
+    private static final String PAGE_PARAM_NAME = "page";
 
     private static final Integer PAGE_SIZE_MAX_VALUE = 100;
 
@@ -71,6 +71,10 @@ public class CommonPageRequest {
                 page = 1;
             }
         }
+
+        System.err.println("page = " + page);
+        System.err.println("perPage = " + perPage);
+
         PageResp<T> objectPage = new PageResp<>(page, perPage);
         if (ObjectUtil.isNotEmpty(orderItemList)) {
             objectPage.setOrders(orderItemList);
