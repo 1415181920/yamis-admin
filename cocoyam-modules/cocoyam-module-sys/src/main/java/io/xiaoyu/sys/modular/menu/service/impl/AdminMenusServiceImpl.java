@@ -25,8 +25,7 @@ public class AdminMenusServiceImpl extends BaseService<AdminMenusMapper,AdminMen
     public PageResp<AdminMenusEntity> queryList(AdminMenusQueryReq req) {
         QueryWrapper<AdminMenusEntity> queryWrapper = new QueryWrapper<>();
         queryWrapper.lambda().orderByDesc(AdminMenusEntity::getId);
-        IPage<AdminMenusEntity> page = this.page(CommonPageRequest.defaultPage(), queryWrapper);
-        return new PageResp<>(page);
+        return this.page(CommonPageRequest.defaultPage(), queryWrapper);
     }
 
     public AdminMenusQueryResp queryById(Long id) {

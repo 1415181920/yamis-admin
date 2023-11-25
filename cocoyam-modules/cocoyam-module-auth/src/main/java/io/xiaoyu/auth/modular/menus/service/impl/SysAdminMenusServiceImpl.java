@@ -12,6 +12,7 @@ import io.xiaoyu.auth.modular.menus.req.AdminMenusQueryReq;
 import io.xiaoyu.auth.modular.menus.resp.AdminMenusQueryResp;
 import io.xiaoyu.auth.modular.menus.service.SysAdminMenusService;
 import io.xiaoyu.common.enums.ActionEnum;
+import io.xiaoyu.common.req.CommonPageRequest;
 import io.xiaoyu.common.resp.PageResp;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -181,24 +182,11 @@ public class SysAdminMenusServiceImpl extends BaseService<SysAdminMenusMapper, S
 
     }
 
-    public PageResp<AdminMenusQueryResp> queryList(AdminMenusQueryReq req) {
-
-        Page<SysAdminMenusEntity> userPage = new Page<>(req.getPage(), req.getPerPage());
-        QueryWrapper<SysAdminMenusEntity> wrapper = new QueryWrapper<>();
-
-        IPage<SysAdminMenusEntity> pageList = sysAdminMenusMapper.selectPage(userPage, wrapper);
-        long total = pageList.getTotal();
-        List<SysAdminMenusEntity> records = pageList.getRecords();
-
-        Console.log(records);
-        List<AdminMenusQueryResp> list = BeanUtil.copyToList(records, AdminMenusQueryResp.class);
-
-        PageResp<AdminMenusQueryResp> pageResp = new PageResp<>();
-        pageResp.setPageNum(req.getPage());
-        pageResp.setPerPage(req.getPerPage());
-        pageResp.setTotal(total);
-        pageResp.setItems(list);
-        return pageResp;
+    public PageResp<SysAdminMenusEntity> queryList(AdminMenusQueryReq req) {
+        QueryWrapper<SysAdminMenusEntity> queryWrapper = new QueryWrapper<>();
+        queryWrapper.lambda().orderByDesc(SysAdminMenusEntity::getId);
+        PageResp<SysAdminMenusEntity> page = this.page(CommonPageRequest.defaultPage(), queryWrapper);
+        return page;
     }
 
     @Override

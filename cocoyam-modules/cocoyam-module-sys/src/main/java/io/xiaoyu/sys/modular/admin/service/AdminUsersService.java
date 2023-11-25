@@ -8,6 +8,6 @@ import io.xiaoyu.common.resp.PageResp;
 
 public interface AdminUsersService extends IBaseService<AdminUsersEntity> {
 
-    PageResp<AdminUsersQueryResp> queryList(AdminUsersQueryReq req);
+    PageResp<AdminUsersEntity> queryList(AdminUsersQueryReq req);
 
 }

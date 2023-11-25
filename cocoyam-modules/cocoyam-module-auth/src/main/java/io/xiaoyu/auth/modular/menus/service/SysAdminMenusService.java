@@ -13,7 +13,7 @@ import java.util.Map;
 
 public interface SysAdminMenusService extends IBaseService<SysAdminMenusEntity> {
 
-    PageResp<AdminMenusQueryResp> queryList(AdminMenusQueryReq req);
+    PageResp<SysAdminMenusEntity> queryList(AdminMenusQueryReq req);
 
     ArrayList<Object> getAdminMenus();
 
