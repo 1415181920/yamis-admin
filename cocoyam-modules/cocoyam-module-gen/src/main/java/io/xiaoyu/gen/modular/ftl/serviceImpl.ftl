@@ -24,8 +24,6 @@ import javax.annotation.Resource;
 @Service
 public class ${Domain}ServiceImpl extends BaseService<${Domain}Mapper,${Domain}Entity> implements ${Domain}Service{
 
-    @Resource
-    private ${Domain}Mapper ${domain}Mapper;
 
     public PageResp<${Domain}Entity> queryList(${Domain}QueryReq req) {
         QueryWrapper<${Domain}Entity> queryWrapper = new QueryWrapper<>();

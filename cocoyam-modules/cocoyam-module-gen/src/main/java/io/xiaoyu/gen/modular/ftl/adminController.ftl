@@ -31,13 +31,13 @@ public class ${Domain}AdminController extends AdminBaseViewController{
     @PostMapping("/add")
     public CommonAdminResp<String> add(@RequestBody @Valid ${Domain}AddReq ${domain}AddReq) {
         ${domain}Service.add(${domain}AddReq);
-        return  CommonAdminResp.success();
+        return  CommonAdminResp.successWithToast();
     }
 
     @PostMapping("/edit")
     public CommonAdminResp<String> edit(@RequestBody @Valid ${Domain}EditReq ${domain}EditReq) {
         ${domain}Service.edit(${domain}EditReq);
-        return CommonAdminResp.success();
+        return CommonAdminResp.successWithToast();
     }
 
     @GetMapping("/query-detail")

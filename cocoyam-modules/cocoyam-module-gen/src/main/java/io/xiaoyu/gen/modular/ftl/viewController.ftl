@@ -55,6 +55,7 @@ public class ${Domain}ViewController extends AdminBaseViewController{
 
         return baseForm(api,title).body(
             new Object[]{
+                AmisFactory.Hidden().name("id").label("id").render(),
         <#list fieldList as field>
         <#if field.name != "created_at" && field.name != "updated_at" && field.name!= "deleted_at" && field.name!= "id" >
             <#if field.comment != "">
