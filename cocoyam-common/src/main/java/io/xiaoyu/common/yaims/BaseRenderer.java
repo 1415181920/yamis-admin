@@ -8,6 +8,11 @@ public abstract  class BaseRenderer {
     public HashMap<Object, Object> amisSchema = new HashMap<>();
 
 
+    public BaseRenderer setType(String type) {
+        this.type = type;
+        amisSchema.put("type", type);
+        return this;
+    }
 
     public BaseRenderer set(Object name, Object value) {
         amisSchema.put(name, value);

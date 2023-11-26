@@ -6,11 +6,11 @@ import io.xiaoyu.${module}.modular.${childModule}.req.${Domain}EditReq;
 import io.xiaoyu.${module}.modular.${childModule}.req.${Domain}QueryReq;
 import io.xiaoyu.${module}.modular.${childModule}.resp.${Domain}QueryResp;
 import io.xiaoyu.${module}.modular.${childModule}.service.${Domain}Service;
+import io.xiaoyu.${module}.modular.${childModule}.entity.${Domain}Entity;
 import io.xiaoyu.common.resp.CommonAdminResp;
 import io.xiaoyu.common.resp.PageResp;
 import org.springframework.web.bind.annotation.*;
 import io.xiaoyu.common.basic.controller.AdminBaseViewController;
-import io.xiaoyu.sys.modular.admin.entity.${Domain}Entity;
 import javax.annotation.Resource;
 import javax.validation.Valid;
 

@@ -6,6 +6,11 @@ package io.xiaoyu.common.yaims;
  */
 public  class AmisFactory {
 
+    /** 不存在的返回 BaseRenderer */
+    public static Amis Amis() {
+        return new Amis();
+    }
+
     public static Action  Action() {
         return new Action();
     }

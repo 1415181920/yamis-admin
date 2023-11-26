@@ -3,6 +3,7 @@ package io.xiaoyu.${module}.modular.${childModule}.resp;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 <#list typeSet as type>
 <#if type=='Date'>
 import java.util.Date;
@@ -13,6 +14,7 @@ import java.math.BigDecimal;
 </#if>
 </#list>
 
+@Data
 public class ${Domain}QueryResp {
 
     <#list fieldList as field>
@@ -28,33 +30,29 @@ public class ${Domain}QueryResp {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
         </#if>
     </#if>
-    <#if field.name=='id' || field.name?ends_with('_id')>
-    @JsonSerialize(using= ToStringSerializer.class)
-    </#if>
-    @JsonProperty("${field.name}")
     private ${field.javaType} ${field.nameHump};
 
     </#list>
-    <#list fieldList as field>
-    public ${field.javaType} get${field.nameBigHump}() {
-        return ${field.nameHump};
-    }
+<#--    <#list fieldList as field>-->
+<#--    public ${field.javaType} get${field.nameBigHump}() {-->
+<#--        return ${field.nameHump};-->
+<#--    }-->
 
-    public void set${field.nameBigHump}(${field.javaType} ${field.nameHump}) {
-        this.${field.nameHump} = ${field.nameHump};
-    }
+<#--    public void set${field.nameBigHump}(${field.javaType} ${field.nameHump}) {-->
+<#--        this.${field.nameHump} = ${field.nameHump};-->
+<#--    }-->
 
-    </#list>
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        <#list fieldList as field>
-        sb.append(", ${field.nameHump}=").append(${field.nameHump});
-        </#list>
-        sb.append("]");
-        return sb.toString();
-    }
+<#--    </#list>-->
+<#--    @Override-->
+<#--    public String toString() {-->
+<#--        StringBuilder sb = new StringBuilder();-->
+<#--        sb.append(getClass().getSimpleName());-->
+<#--        sb.append(" [");-->
+<#--        sb.append("Hash = ").append(hashCode());-->
+<#--        <#list fieldList as field>-->
+<#--        sb.append(", ${field.nameHump}=").append(${field.nameHump});-->
+<#--        </#list>-->
+<#--        sb.append("]");-->
+<#--        return sb.toString();-->
+<#--    }-->
 }

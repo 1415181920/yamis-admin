@@ -2,25 +2,46 @@ package io.xiaoyu.common.basic.controller;
 
 import io.xiaoyu.common.shared.YamisActionContext;
 import io.xiaoyu.common.yaims.AmisFactory;
-
+import io.xiaoyu.common.yaims.Dialog;
+import io.xiaoyu.common.yaims.DrawerAction;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class AdminBaseViewController implements AdminBaseViewInterface{
 
-    protected  <T extends AdminBaseViewController> HashMap<Object, Object> createButton(T t){
+    protected HashMap<Object, Object> createButton(AdminBaseViewController viewController, String title, String size) {
         YamisActionContext.setYamisActionCreate();
-       return AmisFactory.DrawerAction().drawer(
-                AmisFactory.Dialog().title("新增").body(t.formView()).render()
-        ).label("新增").level("primary").icon("fa fa-add").render();
+        Dialog dialog = AmisFactory.Dialog().title(title).body(viewController.formView());
+        if (size != null && !size.isEmpty()) {
+            dialog = dialog.size(size);
+        }
+        return createButtonWithDrawer(AmisFactory.DrawerAction().drawer(dialog.render()),title);
+    }
+
+    private HashMap<Object, Object> createButtonWithDrawer(DrawerAction drawerAction, String title) {
+        return drawerAction
+                .label(title)
+                .level("primary")
+                .icon("fa fa-add")
+                .render();
     }
 
 
-
-    protected <T extends AdminBaseViewController>HashMap<Object, Object> rowEditButton(T t) {
+    protected <T extends AdminBaseViewController>HashMap<Object, Object> rowEditButton(AdminBaseViewController viewController, String title, String size) {
         YamisActionContext.setYamisActionEdit();
-        return AmisFactory.DrawerAction().drawer(
-                AmisFactory.Dialog().title("编辑").body(t.formView()).render()
-        ).label("编辑").icon("fa fa-edit").level("link").render();
+        Dialog dialog = AmisFactory.Dialog().title(title).body(viewController.formView());
+        if (size != null && !size.isEmpty()) {
+            dialog = dialog.size(size);
+        }
+        return editButtonWithDrawer(AmisFactory.DrawerAction().drawer(dialog.render()),title);
+    }
+
+    private HashMap<Object, Object> editButtonWithDrawer(DrawerAction drawerAction, String title) {
+        return drawerAction
+                .label(title)
+                .level("link")
+                .icon("fa fa-edit")
+                .render();
     }
 
 
@@ -41,7 +62,13 @@ public class AdminBaseViewController implements AdminBaseViewInterface{
                 .confirmText("确定删除选中项？").render();
     }
 
-
+    public ArrayList<HashMap<Object,Object>> baseHeaderToolBar() {
+        ArrayList<HashMap<Object,Object>> toolBarItems = new ArrayList<>();
+        toolBarItems.add(AmisFactory.Amis().set("type", "bulkActions").set("align", "right").render());
+        toolBarItems.add(AmisFactory.Amis().set("type", "reload").set("align", "right").render());
+        toolBarItems.add(AmisFactory.Amis().set("type", "filter-toggler").set("align", "right").render());
+        return toolBarItems;
+    }
 
     protected io.xiaoyu.common.yaims.Form baseForm(String api,String title){
        return AmisFactory.Form().panelClassName("px-48 m:px-0").
