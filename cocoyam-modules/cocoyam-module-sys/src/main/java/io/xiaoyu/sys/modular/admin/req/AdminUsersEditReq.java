@@ -1,62 +1,61 @@
-package io.xiaoyu.sys.modular.admin.resp;
+package io.xiaoyu.sys.modular.admin.req;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class AdminUsersQueryResp {
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class AdminUsersEditReq {
 
     /**
      * 
      */
-    @JsonSerialize(using= ToStringSerializer.class)
-    @JsonProperty("id")
     private Integer id;
 
     /**
      * 
      */
-    @JsonProperty("username")
+    @NotBlank(message = "【】不能为空")
     private String username;
 
     /**
      * 
      */
-    @JsonProperty("password")
+    @NotBlank(message = "【】不能为空")
     private String password;
 
     /**
      * 
      */
-    @JsonProperty("name")
+    @NotBlank(message = "【】不能为空")
     private String name;
 
     /**
      * 
      */
-    @JsonProperty("avatar")
     private String avatar;
 
     /**
      * 
      */
-    @JsonProperty("remember_token")
     private String rememberToken;
 
     /**
      * 
      */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
-    @JsonProperty("created_at")
     private Date createdAt;
 
     /**
      * 
      */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
-    @JsonProperty("updated_at")
     private Date updatedAt;
 
     public Integer getId() {
