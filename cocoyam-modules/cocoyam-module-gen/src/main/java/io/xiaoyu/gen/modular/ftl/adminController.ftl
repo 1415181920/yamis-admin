@@ -43,7 +43,7 @@ public class ${Domain}AdminController extends AdminBaseViewController{
     @GetMapping("/query-detail")
     public CommonAdminResp<${Domain}QueryResp> queryDetail(@Valid ${Domain}DetailReq ${domain}DetailReq) {
         ${Domain}QueryResp ${domain}QueryResp = ${domain}Service.queryDetail(${domain}DetailReq);
-        return CommonAdminResp.success(adminRolesQueryResp);
+        return CommonAdminResp.success(${domain}QueryResp);
     }
 
     @PostMapping("/delete")
