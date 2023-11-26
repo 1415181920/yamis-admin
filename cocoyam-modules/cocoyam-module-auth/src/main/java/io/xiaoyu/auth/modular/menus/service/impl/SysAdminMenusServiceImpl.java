@@ -14,6 +14,8 @@ import io.xiaoyu.auth.modular.menus.service.SysAdminMenusService;
 import io.xiaoyu.common.enums.ActionEnum;
 import io.xiaoyu.common.req.CommonPageRequest;
 import io.xiaoyu.common.resp.PageResp;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -25,7 +27,7 @@ import java.util.function.Function;
 @Service
 public class SysAdminMenusServiceImpl extends BaseService<SysAdminMenusMapper, SysAdminMenusEntity> implements SysAdminMenusService {
 
-    @Resource
+    @Resource(name="authAdminMenusMapper")
     private SysAdminMenusMapper sysAdminMenusMapper;
 
 

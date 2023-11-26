@@ -24,7 +24,7 @@ public class AdminRolesViewController extends AdminBaseViewController{
             AmisFactory.
                 CRUDTable().
                 headerToolbar(new Object[]{
-                        createButton(this)
+                        createButton(this,"新增",null)
                 }).
                 api("/sys/admin/admin-roles/query-list").
                 syncLocation(false).
@@ -35,7 +35,7 @@ public class AdminRolesViewController extends AdminBaseViewController{
                     AmisFactory.TableColumn().name("createdAt").label("开始时间").render(),
                     AmisFactory.TableColumn().name("updatedAt").label("更新时间").render(),
                     AmisFactory.Operation().label("操作").buttons(new Object[]{
-                        rowEditButton(this),
+                        rowEditButton(this,"编辑",null),
                         rowDeleteButton("/sys/admin/admin-roles/delete"),
                     }).render()
                 }).render(),

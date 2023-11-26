@@ -24,7 +24,7 @@ public class AdminUsersViewController extends AdminBaseViewController{
             AmisFactory.
                 CRUDTable().
                 headerToolbar(new Object[]{
-                        createButton(this)
+                        createButton(this,"新增",null),
                 }).
                 api("/sys/admin/admin-users/query-list").
                 syncLocation(false).
@@ -38,7 +38,7 @@ public class AdminUsersViewController extends AdminBaseViewController{
                     AmisFactory.TableColumn().name("createdAt").label("createdAt").render(),
                     AmisFactory.TableColumn().name("updatedAt").label("updatedAt").render(),
                     AmisFactory.Operation().label("操作").buttons(new Object[]{
-                        rowEditButton(this),
+                        rowEditButton(this,"编辑",null),
                         rowDeleteButton("/sys/admin/admin-users/delete"),
                     }).render()
                 }).render(),

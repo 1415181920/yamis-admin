@@ -1,8 +1,12 @@
-package io.xiaoyu.sys.modular.menu.req;
+package io.xiaoyu.sys.modular.menus.req;
 
 import io.xiaoyu.common.req.PageReq;
+import lombok.Getter;
+import lombok.Setter;
 
-public class AdminMenusQueryReq extends PageReq {
+@Getter
+@Setter
+public class AdminMenusQueryReq {
 
     @Override
     public String toString() {

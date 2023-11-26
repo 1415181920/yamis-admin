@@ -1,36 +1,39 @@
-package io.xiaoyu.sys.modular.menu.resp;
+package io.xiaoyu.sys.modular.menus.req;
 
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.Data;
 
-@Data
-@TableName("admin_menus")
-public class AdminMenusQueryResp {
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class AdminMenusEditReq {
 
     /**
      * 
      */
-    @JsonSerialize(using= ToStringSerializer.class)
     private Integer id;
 
     /**
      * 
      */
-    @JsonSerialize(using= ToStringSerializer.class)
+    @NotNull(message = "【】不能为空")
     private Integer parentId;
 
     /**
      * 
      */
+    @NotNull(message = "【】不能为空")
     private Integer order;
 
     /**
      * 菜单名称
      */
+    @NotBlank(message = "【菜单名称】不能为空")
     private String title;
 
     /**
@@ -46,16 +49,19 @@ public class AdminMenusQueryResp {
     /**
      * 路由类型(1:路由,2:外链)
      */
+    @NotNull(message = "【路由类型(1:路由,2:外链)】不能为空")
     private Integer urlType;
 
     /**
      * 是否可见
      */
+    @NotNull(message = "【是否可见】不能为空")
     private Integer visible;
 
     /**
      * 是否为首页
      */
+    @NotNull(message = "【是否为首页】不能为空")
     private Integer isHome;
 
     /**
