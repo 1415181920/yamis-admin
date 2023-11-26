@@ -9,6 +9,10 @@ package io.xiaoyu.common.yaims;
  */
 public class Button extends VanillaAction
 {
+    public Button()
+    {
+        set("type", "button");
+    }
     public Button set(String key, Object value) 
     {
         super.set(key, value);

@@ -381,6 +381,10 @@ public class VanillaAction extends BaseRenderer
         return set("visibleOn", value);
     }
 
+    public VanillaAction api(Object value){
+        return set("api", value);
+    }
+
     public VanillaAction set(String key, Object value) 
     {
         super.set(key, value);
