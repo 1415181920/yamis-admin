@@ -10,6 +10,6 @@ public class ${Domain}DetailReq{
 
 
     @NotBlank(message = "id不能为空")
-    private String id;
+    private Integer id;
 
 }

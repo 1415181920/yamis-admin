@@ -23,16 +23,14 @@ public class GeneratorController {
     static boolean readOnly = true;
 
     @Value("${spring.datasource.url}")
-    private  String url = null;//数据库配置
+    private  String url;//数据库配置
 
     @Value("${spring.datasource.username}")
-    private  String user = null;
+    private  String user;
 
     @Value("${spring.datasource.password}")
-    private  String  password= null;
+    private  String  password;
 
-    @Autowired
-    private DataSource dataSource;
 
     static String serverPath = "";
     static String module = "";//主模块名
@@ -42,11 +40,6 @@ public class GeneratorController {
 
     @PostMapping("/admin-api/gen-code")
     public CommonAdminResp<HashMap<String,String>> genCode(@RequestBody GenCodeReq genCodeReq) throws Exception {
-
-        if (true){
-           return CommonAdminResp.success("保存成功");
-        }
-        System.err.println(dataSource.toString());
 
         serverPath = genCodeReq.getServerPath();
         module = genCodeReq.getModule();
@@ -98,7 +91,7 @@ public class GeneratorController {
         gen(Domain, param, "mapper", "mapper");
         genXml(Domain, param, "mapper/mapping", "mapping");
 
-        return CommonAdminResp.success();
+        return CommonAdminResp.successWithToast();
     }
 
     private static void gen(String Domain, Map<String, Object> param, String packageName, String target) throws IOException, TemplateException {
@@ -127,8 +120,7 @@ public class GeneratorController {
      */
     private static Set<String> getJavaTypes(List<Field> fieldList) {
         Set<String> set = new HashSet<>();
-        for (int i = 0; i < fieldList.size(); i++) {
-            Field field = fieldList.get(i);
+        for (Field field : fieldList) {
             set.add(field.getJavaType());
         }
         return set;

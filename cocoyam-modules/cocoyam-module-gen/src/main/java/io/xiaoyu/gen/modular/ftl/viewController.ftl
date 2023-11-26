@@ -31,13 +31,14 @@ public class ${Domain}ViewController extends AdminBaseViewController{
                 columns(new Object[]{
             <#list fieldList as field>
                 <#if field.comment != "">
-                    AmisFactory.TableColumn().name("${field.name}").label("${field.comment}").render(),
+                    AmisFactory.TableColumn().name("${field.nameHump}").label("${field.comment}").render(),
                 <#else>
-                    AmisFactory.TableColumn().name("${field.name}").label("${field.name}").render(),
+                    AmisFactory.TableColumn().name("${field.nameHump}").label("${field.nameHump}").render(),
                 </#if>
             </#list>
                     AmisFactory.Operation().label("操作").buttons(new Object[]{
                         rowEditButton(this),
+                        rowDeleteButton("/${module}/${childModule}/${do_main}/delete"),
                     }).render()
                 }).render(),
         }).render();
@@ -49,15 +50,18 @@ public class ${Domain}ViewController extends AdminBaseViewController{
     /*新增视图*/
     public HashMap<Object, Object> formView() {
 
-        return baseForm("/${module}/${childModule}/${do_main}/add","新增").body(
+        String api = isEdit() ? "/${module}/${childModule}/${do_main}/edit" : "/${module}/${childModule}/${do_main}/add";
+        String title = isEdit() ? "编辑" : "新增";
+
+        return baseForm(api,title).body(
             new Object[]{
         <#list fieldList as field>
         <#if field.name != "created_at" && field.name != "updated_at" && field.name!= "deleted_at" && field.name!= "id" >
             <#if field.comment != "">
-                AmisFactory.TextControl().name("${field.name}").label("${field.comment}").render(),
+                AmisFactory.TextControl().name("${field.nameHump}").label("${field.comment}").render(),
             </#if>
             <#if field.comment == "">
-                AmisFactory.TextControl().name("${field.name}").label("${field.name}").render(),
+                AmisFactory.TextControl().name("${field.nameHump}").label("${field.nameHump}").render(),
             </#if>
         </#if>
         </#list>

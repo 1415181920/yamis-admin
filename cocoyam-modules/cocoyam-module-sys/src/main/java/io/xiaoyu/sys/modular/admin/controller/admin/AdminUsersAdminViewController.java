@@ -1,6 +1,7 @@
 package io.xiaoyu.sys.modular.admin.controller.admin;
 
 import io.xiaoyu.common.basic.controller.AdminBaseViewController;
+import io.xiaoyu.sys.modular.admin.entity.AdminUsersEntity;
 import io.xiaoyu.sys.modular.admin.req.AdminUsersQueryReq;
 import io.xiaoyu.sys.modular.admin.resp.AdminUsersQueryResp;
 import io.xiaoyu.sys.modular.admin.service.AdminUsersService;
@@ -19,8 +20,8 @@ public class AdminUsersAdminViewController extends AdminBaseViewController {
     private AdminUsersService adminUsersService;
 
     @GetMapping("/query-list")
-    public CommonAdminResp<PageResp<AdminUsersQueryResp>> queryList(@Valid AdminUsersQueryReq req) {
-        PageResp<AdminUsersQueryResp> list = adminUsersService.queryList(req);
+    public CommonAdminResp<PageResp<AdminUsersEntity>> queryList(@Valid AdminUsersQueryReq req) {
+        PageResp<AdminUsersEntity> list = adminUsersService.queryList(req);
         return  CommonAdminResp.success(list);
     }
 

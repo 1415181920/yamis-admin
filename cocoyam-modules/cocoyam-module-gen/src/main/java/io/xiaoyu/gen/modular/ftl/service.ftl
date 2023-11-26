@@ -12,7 +12,7 @@ import io.xiaoyu.${module}.modular.${childModule}.req.${Domain}DetailReq;
 
 public interface ${Domain}Service extends IBaseService<${Domain}Entity> {
 
-    PageResp<${Domain}QueryResp> queryList(${Domain}QueryReq req);
+    PageResp<${Domain}Entity> queryList(${Domain}QueryReq req);
 
     void add(${Domain}AddReq ${domain}AddReq);
 
@@ -20,7 +20,9 @@ public interface ${Domain}Service extends IBaseService<${Domain}Entity> {
 
     ${Domain}QueryResp queryDetail(${Domain}DetailReq ${domain}DetailReq);
 
-    ${Domain}Entity queryEntity(Long id);
+    void delete(${Domain}DetailReq ${domain}DetailReq);
+
+    ${Domain}Entity queryEntity(int id);
 
 
 }

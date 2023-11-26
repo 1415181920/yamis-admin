@@ -111,7 +111,7 @@ public class DbUtil {
         rs.close();
         stmt.close();
         conn.close();
-        System.out.println("列信息：" + JSONUtil.toJsonPrettyStr(fieldList));
+//        System.out.println("列信息：" + JSONUtil.toJsonPrettyStr(fieldList));
         return fieldList;
     }
 

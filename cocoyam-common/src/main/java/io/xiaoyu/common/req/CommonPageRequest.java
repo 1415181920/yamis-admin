@@ -72,8 +72,6 @@ public class CommonPageRequest {
             }
         }
 
-        System.err.println("page = " + page);
-        System.err.println("perPage = " + perPage);
 
         PageResp<T> objectPage = new PageResp<>(page, perPage);
         if (ObjectUtil.isNotEmpty(orderItemList)) {
