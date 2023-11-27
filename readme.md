@@ -1,6 +1,6 @@
 <div align="center">
     <br/>
-    <img style="width: 100px;height: 100px" src="https://gitee.com/yjn61/yamis-image/blob/master/logo.png" alt="" />
+    <img style="width: 100px;height: 100px" src="./cocoyam-serve/src/main/resources/static/logo.png" alt="" />
     <h1 align="center">
         Yamis Admin
     </h1>
