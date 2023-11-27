@@ -1,6 +1,6 @@
 <div align="center">
     <br/>
-    <img style="width: 100px;height: 100px" src="http://106.52.14.176/logo.png" alt="" />
+    <img style="width: 100px;height: 100px" src="https://gitee.com/yjn61/yamis-image/blob/master/logo.png" alt="" />
     <h1 align="center">
         Yamis Admin
     </h1>
