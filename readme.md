@@ -1,6 +1,6 @@
 <div align="center">
     <br/>
-    <img style="width: 100px;height:100px" src="./demo-image/logo.png" alt="" />
+    <img  src="./demo-image/logo.png"  style="width:100px" />
     <h1 align="center">
         Yamis Admin
     </h1>
