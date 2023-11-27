@@ -8,9 +8,9 @@ spring:
     suffix: .html
   datasource:
     maxLifetime: 500000,
-    url: jdbc:mysql://106.52.14.176:3306/yamis
-    username: yamis
-    password: yamis123456
+    url: jdbc:mysql://127.0.0.1:3306/yamis
+    username: root
+    password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
   # redis配置
