@@ -1,6 +1,6 @@
 <div align="center">
     <br/>
-    <img style="width: 100px;height: 100px" src="./cocoyam-serve/src/main/resources/static/logo.png" alt="" />
+    <img style="width: 100px;height:100px" src="./demo-image/logo.png" alt="" />
     <h1 align="center">
         Yamis Admin
     </h1>
@@ -10,7 +10,7 @@
 
 </div>
 
-![](http://106.52.14.176/home.png)
+![](./demo-image/home.png)
 >  基于owl-admin 开发的JAVA版本  多处地方不规范 持续开发中 后续优化架构  一名phper
 
 ### 项目介绍
@@ -42,9 +42,9 @@
 
 ### 截图
 
-![](http://106.52.14.176/home.png)
-![](http://106.52.14.176/login.png)
-![](http://106.52.14.176/menus.png)
+![](./demo-image/home.png)
+![](./demo-image/login.png)
+![](./demo-image/menus.png)
 
 ### 安装-后端
 
