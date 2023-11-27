@@ -7,6 +7,12 @@
     <h4 align="center">
         类似php中laravel admin的java框架快速且灵活的后台框架
     </h4> 
+    <h4 align="center">
+        基于amis 无需前端开发即可完成复杂页面
+    </h4> 
+    <h4 align="center">
+        处于开发中！仅供学习使用
+    </h4> 
 
 </div>
 
