@@ -72,10 +72,16 @@ public class AdminMenusServiceImpl extends BaseService<AdminMenusMapper,AdminMen
     public void edit(AdminMenusEditReq adminMenusEditReq) {
         AdminMenusEntity adminMenusEntity = this.queryEntity(adminMenusEditReq.getId());
         BeanUtil.copyProperties(adminMenusEditReq,adminMenusEntity);
+
+        if (ObjectUtil.isEmpty(adminMenusEditReq.getParentId())){
+            adminMenusEntity.setParentId(0);
+        }
+
         //如果本次的修改字段为 isHome 为1 则将其他的isHome字段设置为0
         if (adminMenusEditReq.getIsHome() == 1){
             this.update(new UpdateWrapper<AdminMenusEntity>().set("is_home",0));
         }
+
         this.updateById(adminMenusEntity);
     }
 

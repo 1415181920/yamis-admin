@@ -18,10 +18,7 @@ public class AdminMenusEditReq {
      */
     private Integer id;
 
-    /**
-     * 
-     */
-    @NotNull(message = "【】不能为空")
+
     private Integer parentId;
 
     /**

@@ -6,10 +6,12 @@ public class YamisActionContext {
 
     public static void setYamisActionCreate() {
         yamisActionCreate.set(true);
+        yamisActionEdit.set(false);
     }
 
     public static void setYamisActionEdit() {
         yamisActionEdit.set(true);
+        yamisActionCreate.set(false);
     }
 
     public static Boolean isYamisActionCreate() {

@@ -150,48 +150,6 @@ public class AdminMenusViewController extends AdminBaseViewController{
                         .value(0)
                         .description("是否全屏")
                         .render(),
-
-
-
-//                    amis()->TextControl('url', __('admin.admin_menu.url'))
-//                ->required()
-//                ->validateOnChange()
-//                ->validations(['matchRegexp' => '/^(http(s)?\:\/)?(\/)+/'])
-//                ->validationErrors(['matchRegexp' => __('admin.need_start_with_slash')])
-//                ->placeholder('eg: /admin_menus'),
-//                amis()->NumberControl('order', __('admin.admin_menu.order'))
-//                ->required()
-//                ->displayMode('enhance')
-//                ->description(__('admin.order_asc'))
-//                ->min(0)
-//                ->value(0),
-//                amis()->ListControl('url_type', __('admin.admin_menu.type'))
-//                ->options(Admin::adminMenuModel()::getType())
-//                ->value(Admin::adminMenuModel()::TYPE_ROUTE),
-//        amis()->SwitchControl('visible', __('admin.admin_menu.visible'))
-//                ->onText(__('admin.admin_menu.show'))
-//                ->offText(__('admin.admin_menu.hide'))
-//                ->value(1),
-//                amis()->SwitchControl('is_home', __('admin.admin_menu.is_home'))
-//                ->onText(__('admin.yes'))
-//                ->offText(__('admin.no'))
-//                ->description(__('admin.admin_menu.is_home_description'))
-//                ->value(0),
-//                amis()->SwitchControl('is_full', __('admin.admin_menu.is_full'))
-//                ->onText(__('admin.yes'))
-//                ->offText(__('admin.no'))
-//                ->description(__('admin.admin_menu.is_full_description'))
-//                ->value(0),
-//                AmisFactory.TextControl().name("parentId").label("parentId").render(),
-//                AmisFactory.TextControl().name("title").label("菜单名称").render(),
-//                AmisFactory.TextControl().name("icon").label("菜单图标").render(),
-//                AmisFactory.TextControl().name("url").label("菜单路由").render(),
-//                AmisFactory.TextControl().name("order").label("排序").render(),
-//
-//                AmisFactory.TextControl().name("urlType").label("路由类型(1:路由,2:外链)").render(),
-//                AmisFactory.TextControl().name("visible").label("是否可见").render(),
-//                AmisFactory.TextControl().name("isHome").label("是否为首页").render(),
-//                AmisFactory.TextControl().name("extension").label("扩展").render(),
             }
         ).render();
 
